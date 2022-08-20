@@ -1,4 +1,5 @@
 import React, { ReactElement, useMemo } from 'react';
+
 import { TextProps } from './Text.interface';
 
 const Text = ({

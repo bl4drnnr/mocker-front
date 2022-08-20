@@ -1,8 +1,10 @@
-import { useRecoilState } from 'recoil';
-import { theme as storeTheme } from '@store/global/global.state';
 import { useMemo } from 'react';
-import lightTheme from '@styles/themes/Light.theme';
+
+import { useRecoilState } from 'recoil';
+
+import { theme as storeTheme } from '@store/global/global.state';
 import darkTheme from '@styles/themes/Dark.theme';
+import lightTheme from '@styles/themes/Light.theme';
 
 const useDarkMode = () => {
   const [theme, setTheme] = useRecoilState(storeTheme);

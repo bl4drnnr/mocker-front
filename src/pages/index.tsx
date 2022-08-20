@@ -1,9 +1,10 @@
-import type { NextPage } from 'next';
-import { Container, Title, Welcome } from '@styles/pages/index.styles';
-import Default from '@layouts/Default';
 import classNames from 'classnames';
-import {useRouter} from "next/router";
-import Button from "@components/Button/Button";
+import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
+
+import Button from '@components/Button/Button';
+import Default from '@layouts/Default';
+import { Container, Title, Welcome } from '@styles/pages/index.styles';
 
 const Home: NextPage = () => {
   const router = useRouter();

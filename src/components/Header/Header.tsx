@@ -1,8 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Container, Logo } from '@components/Header/Header.styles';
-import Button from '@components/Button/Button';
+
 import { useRouter } from 'next/router';
+import { useTranslation } from 'react-i18next';
+
+import Button from '@components/Button/Button';
+import { Container, Logo } from '@components/Header/Header.styles';
 
 const Header = () => {
   const { t } = useTranslation();
