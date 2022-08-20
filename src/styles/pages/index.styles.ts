@@ -21,9 +21,17 @@ export const Welcome = styled.div`
 
 export const Title = styled.h1`
   font-size: 64px;
+  transition: .5s;
+  margin-bottom: 35px;
 
   color: ${(props) => props.theme.colors.text};
-  &.test {
-    font-size: 58px;
+  
+  &.subtitle {
+    font-size: 36px;
+    font-weight: 500;
+  }
+  &.smallSubtitle {
+    font-size: 32px;
+    font-weight: 100;
   }
 `;
