@@ -8,11 +8,12 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
+  //justify-content: space-between;
 `;
 
 export const Logo = styled.h1`
   color: ${(props) => props.theme.colors.text};
-  font-size: 42px;
+  font-size: 32px;
   
   margin: 0 20px;
   
