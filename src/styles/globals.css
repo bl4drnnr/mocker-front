@@ -1,14 +1,11 @@
-@import 'https://use.typekit.net/lqi2uxs.css';
-@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
-@import url("https://use.typekit.net/efs6fhm.css");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,400&display=swap');
 
 html,
 body,
 * {
-  padding: 0 !important;
-  margin: 0 !important;
-  font-family: "proxima-nova",sans-serif;
-
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
   -webkit-tap-highlight-color: transparent;
 }
 

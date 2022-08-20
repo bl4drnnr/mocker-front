@@ -1,9 +1,12 @@
 import React from 'react';
-import { Container } from "@styles/components/Header.styles";
+import { useTranslation } from "next-i18next";
+import { Container, Logo } from "@styles/components/Header.styles";
 
 const HeaderComponent = () => {
+  const { t } = useTranslation()
   return (
     <Container>
+      <Logo>{t("components:header.logo")}</Logo>
     </Container>
   );
 };
