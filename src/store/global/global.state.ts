@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 const theme = atom<string>({
   key: 'theme',
-  default: 'light',
+  default: 'dark',
 });
 
 export {

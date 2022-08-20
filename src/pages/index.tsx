@@ -6,7 +6,6 @@ const Home: NextPage = () => {
   return (
     <Default>
       <Container>
-        <h1>asdfsdf</h1>
       </Container>
     </Default>
   );

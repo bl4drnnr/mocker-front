@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
-import {RecoilRoot} from 'recoil';
+import { RecoilRoot } from 'recoil';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
