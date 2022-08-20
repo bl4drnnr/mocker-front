@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 80px;
-  background: royalblue;
+  background: ${(props) => props.theme.colors.textPrimary};
   position: fixed;
 
   display: flex;

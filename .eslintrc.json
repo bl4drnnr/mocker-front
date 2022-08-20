@@ -9,7 +9,6 @@
     "no-param-reassign": "off",
     "react/prop-types": "off",
     "no-shadow": "off",
-    "max-len": "warn",
     "no-nested-ternary": "off",
     "operator-linebreak": "off",
     "comma-dangle": "off",
