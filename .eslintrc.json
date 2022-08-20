@@ -19,12 +19,14 @@
     "quotes": [2, "single", "avoid-escape"],
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
+    "object-curly-spacing": ["error", "always"],
     "no-throw-literal": "off",
     "consistent-return": "off",
     "implicit-arrow-linebreak": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "no-useless-escape": "off",
     "func-names": "off",
+    "semi": "error",
     "react/jsx-filename-extension": [
       2,
       { "extensions": [".js", ".jsx", ".ts", ".tsx"] }

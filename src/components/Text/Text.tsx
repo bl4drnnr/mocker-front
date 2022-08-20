@@ -1,21 +1,21 @@
-import React, { ReactElement, useMemo } from "react";
-import { TextProps } from "./Text.interface";
+import React, { ReactElement, useMemo } from 'react';
+import { TextProps } from './Text.interface';
 
 const Text = ({
-  size, weight = "medium", color,
+  size, weight = 'medium', color,
   children, onClick = () => undefined,
 }: TextProps): ReactElement => {
   const fontWeight = useMemo(() => {
     switch (weight) {
-      case "thin":
+      case 'thin':
         return 300;
-      case "regular":
+      case 'regular':
         return 400;
-      case "medium":
+      case 'medium':
         return 500;
-      case "semibold":
+      case 'semibold':
         return 600;
-      case "bold":
+      case 'bold':
         return 700;
       default:
         return 400;
