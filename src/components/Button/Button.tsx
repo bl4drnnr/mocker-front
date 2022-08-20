@@ -11,7 +11,7 @@ const Button =
     <Container
       onClick={onClick}
     >
-      <Text size={16} color={'lightGray'} weight={'regular'}>{text}</Text>
+      <Text size={16} color={'darkGray'} weight={'regular'}>{text}</Text>
     </Container>
   );
 };

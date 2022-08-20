@@ -14,7 +14,10 @@ const Header = () => {
 
   return (
     <Container>
-      <Logo>MOCKER</Logo>
+      <Logo
+        onClick={() => handleRouteChange('/')}
+      >MOCKER
+      </Logo>
       <Button
         text={'Docs'}
         onClick={() => handleRouteChange('/docs')}
