@@ -1,10 +1,13 @@
-import React from 'react';
+import { InputProps } from '@components/Input/Input.interface';
+import { BasicInput } from '@components/Input/Input.styles';
 
-const Input = () => {
+const Input = ({ value, placeholder, onChange }: InputProps) => {
   return (
-    <div>
-
-    </div>
+    <BasicInput
+      value={value}
+      placeholder={placeholder}
+      onChange={onChange}
+    />
   );
 };
 

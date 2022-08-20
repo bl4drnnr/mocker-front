@@ -35,3 +35,10 @@ export const Title = styled.h1`
     font-weight: 100;
   }
 `;
+
+export const ButtonWrapper = styled.div`
+  width: 300px;
+  margin: 0 auto;
+`;
+
+

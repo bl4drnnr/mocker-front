@@ -4,9 +4,11 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 
 import Button from '@components/Button/Button';
-import { Container, Logo } from '@components/Header/Header.styles';
+import { Buttons, Container, Logo } from '@components/Header/Header.styles';
+import Input from '@components/Input/Input';
 
 const Header = () => {
+  const [test, sets] = React.useState('');
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -20,14 +22,23 @@ const Header = () => {
         onClick={() => handleRouteChange('/')}
       >MOCKER
       </Logo>
-      <Button
-        text={'Docs'}
-        onClick={() => handleRouteChange('/docs')}
+
+      <Input
+        value={test}
+        placeholder={'Search...'}
+        onChange={(e) => sets(e.target.value)}
       />
-      <Button
-        text={'About project'}
-        onClick={() => handleRouteChange('/about')}
-      />
+
+      <Buttons>
+        <Button
+          text={'Docs'}
+          onClick={() => handleRouteChange('/docs')}
+        />
+        <Button
+          text={'About project'}
+          onClick={() => handleRouteChange('/about')}
+        />
+      </Buttons>
     </Container>
   );
 };

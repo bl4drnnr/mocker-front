@@ -1,6 +1,5 @@
 import { ButtonProps } from '@components/Button/Button.interface';
-import { Container } from '@components/Button/Button.styles';
-import Text from '@components/Text/Text';
+import { Container, Text } from '@components/Button/Button.styles';
 
 const Button =
 ({
@@ -11,7 +10,7 @@ const Button =
     <Container
       onClick={onClick}
     >
-      <Text size={16} color={'darkGray'} weight={'regular'}>{text}</Text>
+      <Text>{text}</Text>
     </Container>
   );
 };

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Button from '@components/Button/Button';
 import Default from '@layouts/Default';
-import { Container, Title, Welcome } from '@styles/pages/index.styles';
+import { Container, Title, Welcome, ButtonWrapper } from '@styles/pages/index.styles';
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -26,10 +26,12 @@ const Home: NextPage = () => {
             className={classNames({ smallSubtitle: true })}
           >Prototype and test your API with Mocker</Title>
 
-          <Button
-            text={'Let\'s get started'}
-            onClick={() => handleRouteChange('/docs')}
-          />
+          <ButtonWrapper>
+            <Button
+              text={'Let\'s get started'}
+              onClick={() => handleRouteChange('/docs')}
+            />
+          </ButtonWrapper>
         </Welcome>
 
       </Container>

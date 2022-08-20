@@ -8,7 +8,7 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
-  //justify-content: space-between;
+  justify-content: space-between;
 `;
 
 export const Logo = styled.h1`
@@ -19,4 +19,12 @@ export const Logo = styled.h1`
   
   cursor: pointer;
   transition: .5s;
+  
+  &:hover {
+    color: ${(props) => props.theme.colors.hover};
+  }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
 `;
