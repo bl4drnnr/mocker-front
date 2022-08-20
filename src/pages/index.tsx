@@ -1,8 +1,11 @@
 import type { NextPage } from 'next'
+import HeaderComponent from "@components/Header.component";
 
 const Home: NextPage = () => {
   return (
-    <></>
+    <>
+      <HeaderComponent/>
+    </>
   )
 }
 

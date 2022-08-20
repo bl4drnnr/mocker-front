@@ -1,9 +1,19 @@
+@import 'https://use.typekit.net/lqi2uxs.css';
+@import url('http://fonts.cdnfonts.com/css/segoe-ui-4');
+@import url("https://use.typekit.net/efs6fhm.css");
+
 html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+body,
+* {
+  padding: 0 !important;
+  margin: 0 !important;
+  font-family: "proxima-nova",sans-serif;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0;
 }
 
 a {
@@ -13,14 +23,11 @@ a {
 
 * {
   box-sizing: border-box;
+  transition: 0.5s background-color, color ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
 }
