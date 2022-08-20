@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
-import HeaderComponent from "@components/Header.component";
+import Header from "@components/Header/Header";
 
 const Home: NextPage = () => {
   return (
     <>
-      <HeaderComponent/>
+      <Header/>
     </>
   )
 }
