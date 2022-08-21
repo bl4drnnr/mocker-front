@@ -1,5 +1,7 @@
 {
   "header": {
-    "logo": "Mocker"
+    "docs": "Documentation",
+    "about": "About project",
+    "search": "Search..."
   }
 }

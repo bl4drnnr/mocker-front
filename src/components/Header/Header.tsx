@@ -1,15 +1,14 @@
 import React from 'react';
 
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
 
+import { HeaderProps } from '@components/Header/Header.interface';
 import { Buttons, Container, Logo } from '@components/Header/Header.styles';
 import Button from '@components/UI/Button/Button';
 import Input from '@components/UI/Input/Input';
 
-const Header = () => {
+const Header = ({ docs, about, search }: HeaderProps) => {
   const [test, sets] = React.useState('');
-  const { t } = useTranslation();
   const router = useRouter();
 
   const handleRouteChange = async (path: string) => {
@@ -25,17 +24,17 @@ const Header = () => {
 
       <Input
         value={test}
-        placeholder={'Search...'}
+        placeholder={search}
         onChange={(e) => sets(e.target.value)}
       />
 
       <Buttons>
         <Button
-          text={'Docs'}
+          text={docs}
           onClick={() => handleRouteChange('/docs')}
         />
         <Button
-          text={'About project'}
+          text={about}
           onClick={() => handleRouteChange('/about')}
         />
       </Buttons>

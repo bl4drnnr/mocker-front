@@ -4,6 +4,7 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/Header';
+import { HeaderProps } from '@components/Header/Header.interface';
 import useDarkMode from '@hooks/useDarkMode.hook';
 import darkTheme from '@styles/themes/Dark.theme';
 import lightTheme from '@styles/themes/Light.theme';
@@ -23,9 +24,10 @@ const Container = styled.div`
 
 interface DefaultLayoutProps {
   children: React.ReactElement | React.ReactElement[];
+  header: HeaderProps;
 }
 
-const Default = ({ children }: DefaultLayoutProps): React.ReactElement => {
+const Default = ({ children, header }: DefaultLayoutProps): React.ReactElement => {
   const [theme] = useDarkMode();
 
   return (
@@ -33,7 +35,11 @@ const Default = ({ children }: DefaultLayoutProps): React.ReactElement => {
       <Wrapper>
         <Container>
 
-          <Header />
+          <Header
+            docs={header.search}
+            about={header.docs}
+            search={header.about}
+          />
           <ChildrenContainer>
             {children}
           </ChildrenContainer>

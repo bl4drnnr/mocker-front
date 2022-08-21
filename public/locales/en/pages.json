@@ -9,7 +9,6 @@
     "endpointsDescription2": "More about every endpoint and how they related you can find in",
     "availableEndpoints": "Available endpoints and quantity of records",
     "relation": "Keep in mind, that endpoints are related between each other and can be used as improvised database with relations.",
-
     "docs": "documentation",
     "quantity": "Quantity of records"
   }

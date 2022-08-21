@@ -23,7 +23,7 @@ import {
 
 
 const Home: NextPage = () => {
-  const { t } = useTranslation('pages');
+  const { t } = useTranslation();
   const router = useRouter();
 
   const handleRouteChange = async (path: string) => {
@@ -31,21 +31,26 @@ const Home: NextPage = () => {
   };
 
   return (
-    <Default>
-
+    <Default
+      header={{
+        docs: t('components:header.docs'),
+        search: t('components:header.about'),
+        about: t('components:header.search')
+    }}
+    >
       <WelcomeWrapper>
         <Welcome>
           <Title>MOCKER</Title>
           <Title
             className={classNames({ subtitle: true })}
-          >{t('index.title')}</Title>
+          >{t('pages:index.title')}</Title>
           <Title
             className={classNames({ smallSubtitle: true })}
-          >{t('index.subtitle')}</Title>
+          >{t('pages:index.subtitle')}</Title>
 
           <ButtonWrapper>
             <Button
-              text={t('index.startButton')}
+              text={t('pages:index.startButton')}
               onClick={() => handleRouteChange('/docs')}
             />
           </ButtonWrapper>
@@ -56,25 +61,25 @@ const Home: NextPage = () => {
 
         <IntroContent>
           <Title className={classNames({ contentTitle: true })}>Introduction</Title>
-          <Intro><strong>Mocker - &nbsp;</strong>{t('index.intro')}</Intro>
+          <Intro><strong>Mocker - &nbsp;</strong>{t('pages:index.intro')}</Intro>
 
-          <Text>{t('index.linkTo')} -&nbsp;
+          <Text>{t('pages:index.linkTo')} -&nbsp;
             <Link>https://data.mockerdistibutor.org</Link>
           </Text>
-          <Text>{t('index.endpointsDescription1')}</Text>
+          <Text>{t('pages:index.endpointsDescription1')}</Text>
           <Text>
-            {t('index.endpointsDescription2')}&nbsp;<Link>{t('index.docs')}</Link>
+            {t('pages:index.endpointsDescription2')}&nbsp;<Link>{t('pages:index.docs')}</Link>
           </Text>
 
           <Title className={classNames({ contentTitle: true })}>Available endpoints</Title>
           <EndpointsContent>
-            <Text>{t('index.availableEndpoints')}:</Text>
+            <Text>{t('pages:index.availableEndpoints')}:</Text>
 
             <Table>
               <thead>
               <tr>
                 <th>Endpoint</th>
-                <th>{t('index.quantity')}</th>
+                <th>{t('pages:index.quantity')}</th>
               </tr>
               </thead>
               <tbody>
@@ -93,7 +98,7 @@ const Home: NextPage = () => {
               </tbody>
             </Table>
 
-            <Text>{t('index.relation')}</Text>
+            <Text>{t('pages:index.relation')}</Text>
           </EndpointsContent>
 
           <Title className={classNames({ contentTitle: true })}>Examples</Title>
@@ -109,7 +114,7 @@ export const getStaticProps: GetStaticProps = async ({
  locale
 }) => ({
   props: {
-    ...(await serverSideTranslations(locale as string, ['pages'])),
+    ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
   },
 });
 
