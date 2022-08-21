@@ -19,10 +19,20 @@ const Header = ({ docs, about, search }: HeaderProps) => {
     await router.push(path);
   };
 
-  const toggleTheme = () => {
-    if (currentTheme === 'dark') setCurrentTheme('light');
-    else setCurrentTheme('dark');
+  const setTheme = (theme: 'dark' | 'light') => {
+    setCurrentTheme(theme);
+    localStorage.setItem('theme', theme);
   };
+
+  const toggleTheme = () => {
+    if (currentTheme === 'dark') setTheme('light');
+    else setTheme('dark');
+  };
+
+  React.useEffect(() => {
+    const theme = localStorage.getItem('theme') as 'dark' | 'light';
+    if (['dark', 'light'].includes(theme)) setTheme(theme);
+  }, []);
 
   return (
     <Container>
