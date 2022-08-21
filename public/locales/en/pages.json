@@ -2,7 +2,7 @@
   "index": {
     "title": "Fake JSON REST API data distribution",
     "subtitle": "Prototype and test your API with Mocker",
-    "startButton": "Let's get started",
+    "startButton": "Let's jump into",
     "intro": "is free JSON RESP API data distributor for prototyping and testing API with mock data.",
     "linkTo": "All endpoint are available to use under this URL address",
     "endpointsDescription1": "Description of endpoints and quantity of available records under every endpoint will be listed below.",
@@ -10,6 +10,12 @@
     "availableEndpoints": "Available endpoints and quantity of records",
     "relation": "Keep in mind, that endpoints are related between each other and can be used as improvised database with relations.",
     "docs": "documentation",
-    "quantity": "Quantity of records"
+    "quantity": "Quantity of records",
+    "introMenu": {
+      "intro": "Introduction",
+      "availableEndpoints": "Available endpoints",
+      "examples": "Examples"
+    },
+    "examplesText": "Here is a couple of example on how you can use endpoints in your own API and for what kind of response you can wait."
   }
 }

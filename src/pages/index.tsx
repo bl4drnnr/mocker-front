@@ -18,8 +18,7 @@ import {
   Link,
   Content,
   Table,
-  LinkTd,
-  LinkP
+  LinkTd
 } from '@styles/pages/index.styles';
 
 
@@ -62,7 +61,9 @@ const Home: NextPage = () => {
 
         <IntroContent>
 
-          <Title className={classNames({ contentTitle: true })}>Introduction</Title>
+          <Title className={classNames({ contentTitle: true })}>
+            {t('pages:index.introMenu.intro')}
+          </Title>
           <Intro><strong>Mocker - &nbsp;</strong>{t('pages:index.intro')}</Intro>
           <Content>
             <Text>{t('pages:index.linkTo')} -&nbsp;
@@ -70,11 +71,11 @@ const Home: NextPage = () => {
             </Text>
             <Text>{t('pages:index.endpointsDescription1')}</Text>
             <Text>
-              {t('pages:index.endpointsDescription2')}&nbsp;<Link>{t('pages:index.docs')}</Link>
+              {t('pages:index.endpointsDescription2')}&nbsp;<Link>{t('pages:index.docs')}.</Link>
             </Text>
           </Content>
 
-          <Title className={classNames({ contentTitle: true })}>Available endpoints</Title>
+          <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.availableEndpoints')}</Title>
           <Content>
             <Text>{t('pages:index.availableEndpoints')}:</Text>
 
@@ -104,9 +105,9 @@ const Home: NextPage = () => {
             <Text>{t('pages:index.relation')}</Text>
           </Content>
 
-          <Title className={classNames({ contentTitle: true })}>Examples</Title>
+          <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.examples')}</Title>
           <Content>
-            <Text>Here is a couple of example on how you can use endpoints in your own API and for what kind of response you can wait.</Text>
+            <Text>{t('pages:index.examplesText')}</Text>
           </Content>
 
         </IntroContent>

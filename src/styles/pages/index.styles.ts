@@ -94,23 +94,11 @@ export const Link = styled.span`
 
 export const LinkTd = styled.td`
   font-size: 28px;
-  font-weight: 100;
+  font-weight: 300;
 
   color: ${(props) => props.theme.colors.link} !important;
 
   padding: 10px 0;
-  
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-export const LinkP = styled.p`
-  font-size: 28px;
-  font-weight: 100;
-  
-  color: ${(props) => props.theme.colors.link};
   
   cursor: pointer;
   &:hover {

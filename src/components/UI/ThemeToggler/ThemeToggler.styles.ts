@@ -13,7 +13,6 @@ export const Toggler = styled.div`
   justify-content: center;
   
   cursor: pointer;
-  transition: .5s;
 
   &:hover {
     background: ${(props) => props.theme.colors.hover};
