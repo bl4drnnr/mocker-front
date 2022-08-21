@@ -21,8 +21,13 @@ import {
   LinkTd
 } from '@styles/pages/index.styles';
 
+interface HomeProps {
+  postsCount: number;
+  usersCount: number;
+  todosCount: number
+}
 
-const Home: NextPage = () => {
+const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -88,16 +93,16 @@ const Home: NextPage = () => {
               </thead>
               <tbody>
               <tr>
-                <LinkTd>/post</LinkTd>
-                <td>20</td>
+                <LinkTd>/user</LinkTd>
+                <td>{usersCount}</td>
               </tr>
               <tr>
-                <LinkTd>/user</LinkTd>
-                <td>10</td>
+                <LinkTd>/post</LinkTd>
+                <td>{postsCount}</td>
               </tr>
               <tr>
                 <LinkTd>/todo</LinkTd>
-                <td>15</td>
+                <td>{todosCount}</td>
               </tr>
               </tbody>
             </Table>
@@ -119,10 +124,24 @@ const Home: NextPage = () => {
 
 export const getStaticProps: GetStaticProps = async ({
  locale
-}) => ({
-  props: {
-    ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
-  },
-});
+}) => {
+  const postRes = await fetch(`${process.env.DATA_API_URL}/post?count=true`);
+  const postsCount = await postRes.json();
+
+  const usersRes = await fetch(`${process.env.DATA_API_URL}/user?count=true`);
+  const usersCount = await usersRes.json();
+
+  const todosRes = await fetch(`${process.env.DATA_API_URL}/todo?count=true`);
+  const todosCount = await todosRes.json();
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
+      postsCount: postsCount.count,
+      usersCount: usersCount.count,
+      todosCount: todosCount.count
+    }
+  };
+};
 
 export default Home;

@@ -115,6 +115,7 @@ export const Table = styled.table`
   table-layout: fixed;
   width: 500px;
   text-align: center;
+  margin: 0 auto;
   
   th, td {
     color: ${(props) => props.theme.colors.text};
