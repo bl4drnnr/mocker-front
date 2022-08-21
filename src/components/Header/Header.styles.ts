@@ -27,4 +27,5 @@ export const Logo = styled.h1`
 
 export const Buttons = styled.div`
   display: flex;
+  align-items: center;
 `;

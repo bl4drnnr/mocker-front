@@ -16,9 +16,10 @@ import {
   Intro,
   Text,
   Link,
-  EndpointsContent,
+  Content,
   Table,
-  LinkTd
+  LinkTd,
+  LinkP
 } from '@styles/pages/index.styles';
 
 
@@ -60,19 +61,21 @@ const Home: NextPage = () => {
       <ContentWrapper>
 
         <IntroContent>
+
           <Title className={classNames({ contentTitle: true })}>Introduction</Title>
           <Intro><strong>Mocker - &nbsp;</strong>{t('pages:index.intro')}</Intro>
-
-          <Text>{t('pages:index.linkTo')} -&nbsp;
-            <Link>https://data.mockerdistibutor.org</Link>
-          </Text>
-          <Text>{t('pages:index.endpointsDescription1')}</Text>
-          <Text>
-            {t('pages:index.endpointsDescription2')}&nbsp;<Link>{t('pages:index.docs')}</Link>
-          </Text>
+          <Content>
+            <Text>{t('pages:index.linkTo')} -&nbsp;
+              <Link>https://data.mockerdistibutor.org</Link>
+            </Text>
+            <Text>{t('pages:index.endpointsDescription1')}</Text>
+            <Text>
+              {t('pages:index.endpointsDescription2')}&nbsp;<Link>{t('pages:index.docs')}</Link>
+            </Text>
+          </Content>
 
           <Title className={classNames({ contentTitle: true })}>Available endpoints</Title>
-          <EndpointsContent>
+          <Content>
             <Text>{t('pages:index.availableEndpoints')}:</Text>
 
             <Table>
@@ -99,9 +102,12 @@ const Home: NextPage = () => {
             </Table>
 
             <Text>{t('pages:index.relation')}</Text>
-          </EndpointsContent>
+          </Content>
 
           <Title className={classNames({ contentTitle: true })}>Examples</Title>
+          <Content>
+            <Text>Here is a couple of example on how you can use endpoints in your own API and for what kind of response you can wait.</Text>
+          </Content>
 
         </IntroContent>
 

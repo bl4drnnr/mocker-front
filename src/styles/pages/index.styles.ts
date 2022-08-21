@@ -14,6 +14,7 @@ export const WelcomeWrapper = styled.div`
 export const Welcome = styled.div`
   width: 65%;
   height: 75%;
+  
   text-align: center;
 
   margin: 0 auto;
@@ -58,7 +59,6 @@ export const IntroContent = styled.div`
 
 export const Intro = styled.p`
   padding-top: 50px;
-  padding-bottom: 30px;
   text-align: center;
   
   font-size: 20px;
@@ -99,9 +99,26 @@ export const LinkTd = styled.td`
   color: ${(props) => props.theme.colors.link} !important;
 
   padding: 10px 0;
+  
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
-export const EndpointsContent = styled.div`
+export const LinkP = styled.p`
+  font-size: 28px;
+  font-weight: 100;
+  
+  color: ${(props) => props.theme.colors.link};
+  
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const Content = styled.div`
   width: 100%;
   padding: 50px 50px 0 50px;
 `;
