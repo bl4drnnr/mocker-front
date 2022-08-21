@@ -1,10 +1,12 @@
 import React from 'react';
 
+import { Container } from '@components/Footer/Footer.styles';
+
 const Footer = () => {
   return (
-    <div>
+    <Container>
 
-    </div>
+    </Container>
   );
 };
 

@@ -4,5 +4,6 @@ export interface ThemeProps {
     secondary: string;
     text: string;
     hover: string;
+    link: string;
   }
 }

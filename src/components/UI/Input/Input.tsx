@@ -1,5 +1,5 @@
-import { InputProps } from '@components/Input/Input.interface';
-import { BasicInput } from '@components/Input/Input.styles';
+import { InputProps } from '@components/UI/Input/Input.interface';
+import { BasicInput } from '@components/UI/Input/Input.styles';
 
 const Input = ({ value, placeholder, onChange }: InputProps) => {
   return (

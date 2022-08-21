@@ -3,9 +3,9 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 
-import Button from '@components/Button/Button';
 import { Buttons, Container, Logo } from '@components/Header/Header.styles';
-import Input from '@components/Input/Input';
+import Button from '@components/UI/Button/Button';
+import Input from '@components/UI/Input/Input';
 
 const Header = () => {
   const [test, sets] = React.useState('');

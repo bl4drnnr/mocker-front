@@ -1,5 +1,5 @@
-import { ButtonProps } from '@components/Button/Button.interface';
-import { Container, Text } from '@components/Button/Button.styles';
+import { ButtonProps } from '@components/UI/Button/Button.interface';
+import { Container, Text } from '@components/UI/Button/Button.styles';
 
 const Button =
 ({

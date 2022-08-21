@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const WelcomeWrapper = styled.div`
   width: 100%;
   height: 600px;
   
@@ -41,4 +41,76 @@ export const ButtonWrapper = styled.div`
   margin: 0 auto;
 `;
 
+export const ContentWrapper = styled.div`
+  width: 100%;
+  background: ${(props) => props.theme.colors.secondary};
+`;
 
+export const IntroContent = styled.div`
+  width: 65%;
+  margin: 0 auto;
+`;
+
+export const Intro = styled.p`
+  padding-top: 50px;
+  padding-bottom: 30px;
+  text-align: center;
+  
+  font-size: 20px;
+  font-weight: 500;
+  
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const Text = styled.p`
+  padding-bottom: 10px;
+  font-size: 18px;
+  font-weight: 300;
+  
+  color: ${(props) => props.theme.colors.text};
+`;
+
+export const Link = styled.span`
+  display: inline-flex;
+  color: ${(props) => props.theme.colors.link};
+  cursor: pointer;
+
+  &.endpoint {
+    font-size: 28px;
+    font-weight: 100;
+    display: block;
+    padding: 10px 0;
+  }
+  
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const LinkTd = styled.td`
+  font-size: 28px;
+  font-weight: 100;
+
+  color: ${(props) => props.theme.colors.link} !important;
+
+  padding: 10px 0;
+`;
+
+export const EndpointsContent = styled.div`
+  width: 100%;
+  padding: 50px;
+`;
+
+export const Table = styled.table`
+  table-layout: fixed;
+  width: 500px;
+  text-align: center;
+  
+  th, td {
+    color: ${(props) => props.theme.colors.text};
+  }
+  
+  td {
+    font-size: 24px;
+  }
+`;
