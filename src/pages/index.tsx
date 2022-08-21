@@ -55,6 +55,7 @@ const Home: NextPage = () => {
       <ContentWrapper>
 
         <IntroContent>
+          <Title className={classNames({ contentTitle: true })}>Introduction</Title>
           <Intro><strong>Mocker - &nbsp;</strong>{t('index.intro')}</Intro>
 
           <Text>{t('index.linkTo')} -&nbsp;
@@ -65,6 +66,7 @@ const Home: NextPage = () => {
             {t('index.endpointsDescription2')}&nbsp;<Link>{t('index.docs')}</Link>
           </Text>
 
+          <Title className={classNames({ contentTitle: true })}>Available endpoints</Title>
           <EndpointsContent>
             <Text>{t('index.availableEndpoints')}:</Text>
 
@@ -93,6 +95,9 @@ const Home: NextPage = () => {
 
             <Text>{t('index.relation')}</Text>
           </EndpointsContent>
+
+          <Title className={classNames({ contentTitle: true })}>Examples</Title>
+
         </IntroContent>
 
       </ContentWrapper>

@@ -34,6 +34,11 @@ export const Title = styled.h1`
     font-size: 32px;
     font-weight: 100;
   }
+  &.contentTitle {
+    font-size: 32px;
+    margin: 0;
+    padding-top: 50px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -98,7 +103,7 @@ export const LinkTd = styled.td`
 
 export const EndpointsContent = styled.div`
   width: 100%;
-  padding: 50px;
+  padding: 50px 50px 0 50px;
 `;
 
 export const Table = styled.table`
