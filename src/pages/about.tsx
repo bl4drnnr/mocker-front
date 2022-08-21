@@ -5,6 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Default from '@layouts/Default';
+import { Container, Title, Wrapper } from '@styles/pages/about.styles';
 
 const About = () => {
   const { t } = useTranslation();
@@ -17,7 +18,11 @@ const About = () => {
         about: t('components:header.search')
       }}
     >
-      <></>
+      <Wrapper>
+        <Container>
+          <Title>About project</Title>
+        </Container>
+      </Wrapper>
     </Default>
   );
 };
