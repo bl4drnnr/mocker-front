@@ -6,13 +6,11 @@ import { useRecoilState } from 'recoil';
 import { HeaderProps } from '@components/Header/Header.interface';
 import { Buttons, Container, Logo } from '@components/Header/Header.styles';
 import Button from '@components/UI/Button/Button';
-import Input from '@components/UI/Input/Input';
 import ThemeToggler from '@components/UI/ThemeToggler/ThemeToggler';
 import { theme } from '@store/global/global.state';
 
 const Header = ({ docs, about, search }: HeaderProps) => {
   const [currentTheme, setCurrentTheme] = useRecoilState(theme);
-  const [searchQuery, setSearchQuery] = React.useState('');
   const router = useRouter();
 
   const handleRouteChange = async (path: string) => {
@@ -40,12 +38,6 @@ const Header = ({ docs, about, search }: HeaderProps) => {
         onClick={() => handleRouteChange('/')}
       >MOCKER
       </Logo>
-
-      <Input
-        value={searchQuery}
-        placeholder={search}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
 
       <Buttons>
         <ThemeToggler

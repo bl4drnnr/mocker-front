@@ -17,5 +17,8 @@
       "examples": "Examples"
     },
     "examplesText": "Here is a couple of example on how you can use endpoints in your own API and for what kind of response you can wait."
+  },
+  "about": {
+    "title": "About project"
   }
 }

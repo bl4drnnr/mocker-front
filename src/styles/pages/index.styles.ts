@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const WelcomeWrapper = styled.div`
   width: 100%;
-  height: 600px;
+  height: 700px;
   
-  background: ${(props) => props.theme.colors.primary};
-  
+  background-image: ${(props) => props.theme.colors.bg};
   display: flex;
   
   align-items: center;
@@ -28,8 +27,8 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.colors.text};
   
   &.subtitle {
-    font-size: 36px;
-    font-weight: 500;
+    font-size: 3.75rem;
+    font-weight: 900;
   }
   &.smallSubtitle {
     font-size: 32px;

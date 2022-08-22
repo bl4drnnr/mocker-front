@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Default from '@layouts/Default';
-import { Container, Title, Wrapper } from '@styles/pages/about.styles';
+import { Container, Content, Link, Title, Wrapper } from '@styles/pages/about.styles';
 
 const About = () => {
   const { t } = useTranslation();
@@ -20,7 +20,16 @@ const About = () => {
     >
       <Wrapper>
         <Container>
-          <Title>About project</Title>
+          <Title>{t('pages:about.title')}</Title>
+
+          <Content>
+            <strong>Mocker - &nbsp;</strong>
+            is absolutely&nbsp;<Link>open-source</Link>&nbsp;and free project, that had been created as learn project to learn 3 frameworks - React + Next.js and Nest.js and all AWS deployment staff.
+          </Content>
+          <Content>More about every part of project - front-end and back-end - you can find on
+            <strong>GitHub</strong>
+            pages listed below.
+          </Content>
         </Container>
       </Wrapper>
     </Default>
