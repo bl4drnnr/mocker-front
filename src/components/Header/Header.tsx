@@ -9,7 +9,7 @@ import { Buttons, Container, HeaderLink, Logo } from '@components/Header/Header.
 import ThemeToggler from '@components/UI/ThemeToggler/ThemeToggler';
 import { theme } from '@store/global/global.state';
 
-const Header = ({ docs, about, search }: HeaderProps) => {
+const Header = ({ docs, about }: HeaderProps) => {
   const [currentTheme, setCurrentTheme] = useRecoilState(theme);
   const router = useRouter();
 
@@ -40,11 +40,14 @@ const Header = ({ docs, about, search }: HeaderProps) => {
       </Logo>
 
       <Buttons>
-        <HeaderLink>
+        <HeaderLink
+          onClick={() => handleRouteChange('/docs')}
+        >
           {docs}
         </HeaderLink>
         <HeaderLink
           className={classNames({ last: true })}
+          onClick={() => handleRouteChange('/about')}
         >
           {about}
         </HeaderLink>

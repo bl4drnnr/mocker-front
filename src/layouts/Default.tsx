@@ -32,9 +32,8 @@ const Default = ({ children, header }: DefaultLayoutProps): React.ReactElement =
         <Container>
 
           <Header
-            docs={header.search}
-            about={header.docs}
-            search={header.about}
+            docs={header.docs}
+            about={header.about}
           />
           {children}
           <Footer />

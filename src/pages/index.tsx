@@ -46,9 +46,8 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
     <Default
       header={{
         docs: t('components:header.docs'),
-        search: t('components:header.about'),
-        about: t('components:header.search')
-    }}
+        about: t('components:header.about')
+      }}
     >
       <WelcomeWrapper>
         <Welcome>
