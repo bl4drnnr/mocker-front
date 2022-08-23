@@ -6,7 +6,7 @@
     "linkTo": "All endpoint are available to use under this URL address",
     "endpointsDescription1": "Description of endpoints and quantity of available records under every endpoint will be listed below.",
     "endpointsDescription2": "More about every endpoint and how they related you can find in",
-    "availableEndpoints": "Available endpoints and quantity of records",
+    "availableEndpoints": "There is a table bellow, illustrating available endpoints and quantity of records per endpoint.",
     "relation": "Keep in mind, that endpoints are related between each other and can be used as improvised database with relations.",
     "docs": "documentation",
     "quantity": "Quantity of records",

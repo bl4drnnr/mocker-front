@@ -21,7 +21,6 @@ export const Welcome = styled.div`
 
 export const Title = styled.h1`
   font-size: 64px;
-  transition: .5s;
   margin-bottom: 35px;
 
   color: ${(props) => props.theme.colors.text};
@@ -112,7 +111,7 @@ export const Content = styled.div`
 
 export const Table = styled.table`
   table-layout: fixed;
-  width: 500px;
+  width: 400px;
   text-align: center;
   margin: 0 auto;
   

@@ -12,6 +12,10 @@ export const Container = styled.div`
   border-radius: 8px;
 
   cursor: pointer;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hover};
+  }
 `;
 
 export const Text = styled.p`

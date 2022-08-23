@@ -16,7 +16,6 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   font-size: 52px;
-  transition: .5s;
   margin-bottom: 35px;
   margin-top: 35px;
 

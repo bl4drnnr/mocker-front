@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import classNames from 'classnames';
 import type { GetStaticProps, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
@@ -5,6 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import Button from '@components/UI/Button/Button';
+import Input from '@components/UI/Input/Input';
 import Default from '@layouts/Default';
 import {
   WelcomeWrapper,
@@ -20,8 +23,6 @@ import {
   Table,
   LinkTd
 } from '@styles/pages/index.styles';
-import Input from "@components/UI/Input/Input";
-import {useState} from "react";
 
 interface HomeProps {
   postsCount: number;
@@ -88,7 +89,8 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.availableEndpoints')}</Title>
           <Content>
-            <Text>{t('pages:index.availableEndpoints')}:</Text>
+            <Text>{t('pages:index.availableEndpoints')}</Text>
+            <Text>{t('pages:index.relation')}</Text>
 
             <Table>
               <thead>
@@ -113,7 +115,6 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               </tbody>
             </Table>
 
-            <Text>{t('pages:index.relation')}</Text>
           </Content>
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.examples')}</Title>

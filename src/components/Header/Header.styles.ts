@@ -18,7 +18,10 @@ export const Logo = styled.h1`
   margin: 0 20px;
   
   cursor: pointer;
-  transition: .5s;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.hover};
+  }
 `;
 
 export const Buttons = styled.div`
@@ -29,7 +32,6 @@ export const Buttons = styled.div`
 
 export const HeaderLink = styled.p`
   margin: 0 20px;
-  transition: .5s;
 
   font-size: 16px;
   font-weight: 900;
@@ -37,6 +39,10 @@ export const HeaderLink = styled.p`
   color: ${(props) => props.theme.colors.text};
 
   cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.hover};
+  }
   
   &.last {
     border-right: 1px solid white;

@@ -8,4 +8,12 @@ export const BasicInput = styled.input`
 
   padding: 12px;
   border-radius: 8px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hover};
+  }
+  
+  ::placeholder {
+    color: rgba(238, 238, 238, .85);
+  }
 `;
