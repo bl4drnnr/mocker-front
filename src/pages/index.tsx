@@ -17,7 +17,8 @@ import {
   Code,
   CodeLine,
   Title,
-  Text
+  Text,
+  LinkTd
 } from '@styles/common/common.styles';
 import {
   WelcomeWrapper,
@@ -119,15 +120,15 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
               </thead>
               <tbody>
               <tr>
-                <Link className={classNames({ tableLink: true })}>/user</Link>
+                <LinkTd className={classNames({ tableLink: true })}>/user</LinkTd>
                 <td>{usersCount}</td>
               </tr>
               <tr>
-                <Link className={classNames({ tableLink: true })}>/post</Link>
+                <LinkTd className={classNames({ tableLink: true })}>/post</LinkTd>
                 <td>{postsCount}</td>
               </tr>
               <tr>
-                <Link className={classNames({ tableLink: true })}>/todo</Link>
+                <LinkTd className={classNames({ tableLink: true })}>/todo</LinkTd>
                 <td>{todosCount}</td>
               </tr>
               </tbody>

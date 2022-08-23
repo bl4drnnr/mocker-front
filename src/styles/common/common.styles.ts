@@ -16,6 +16,20 @@ export const Link = styled.span`
   }
 `;
 
+export const LinkTd = styled.td`
+  font-size: 28px;
+  font-weight: 500;
+  
+  color: ${(props) => props.theme.colors.link} !important;
+  
+  padding: 5px 0;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+
 export const Code = styled.div`
   width: 650px;
   padding: 12px;
