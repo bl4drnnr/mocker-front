@@ -1,11 +1,11 @@
 import React from 'react';
 
+import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 
 import { HeaderProps } from '@components/Header/Header.interface';
-import { Buttons, Container, Logo } from '@components/Header/Header.styles';
-import Button from '@components/UI/Button/Button';
+import { Buttons, Container, HeaderLink, Logo } from '@components/Header/Header.styles';
 import ThemeToggler from '@components/UI/ThemeToggler/ThemeToggler';
 import { theme } from '@store/global/global.state';
 
@@ -40,17 +40,17 @@ const Header = ({ docs, about, search }: HeaderProps) => {
       </Logo>
 
       <Buttons>
+        <HeaderLink>
+          {docs}
+        </HeaderLink>
+        <HeaderLink
+          className={classNames({ last: true })}
+        >
+          {about}
+        </HeaderLink>
         <ThemeToggler
           theme={currentTheme}
           onClick={() => toggleTheme()}
-        />
-        <Button
-          text={docs}
-          onClick={() => handleRouteChange('/docs')}
-        />
-        <Button
-          text={about}
-          onClick={() => handleRouteChange('/about')}
         />
       </Buttons>
     </Container>

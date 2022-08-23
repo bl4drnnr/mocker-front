@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const BasicInput = styled.input`
-  background-color: ${(props) => props.theme.colors.primary};
-  border: 1px solid ${(props) => props.theme.colors.text};
-  color: ${(props) => props.theme.colors.text};
+  background-color: rgba(30, 41, 59, .85);
+  border: none;
+  color: rgba(238, 238, 238, .85);
   font-size: 16px;
 
   padding: 12px;

@@ -9,10 +9,6 @@ import useDarkMode from '@hooks/useDarkMode.hook';
 import darkTheme from '@styles/themes/Dark.theme';
 import lightTheme from '@styles/themes/Light.theme';
 
-const ChildrenContainer = styled.div`
-  padding-top: 80px;
-`;
-
 const Wrapper = styled.div`
   position: relative;
   min-height: 100vh;
@@ -40,9 +36,7 @@ const Default = ({ children, header }: DefaultLayoutProps): React.ReactElement =
             about={header.docs}
             search={header.about}
           />
-          <ChildrenContainer>
-            {children}
-          </ChildrenContainer>
+          {children}
           <Footer />
 
         </Container>

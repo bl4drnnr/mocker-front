@@ -20,6 +20,8 @@ import {
   Table,
   LinkTd
 } from '@styles/pages/index.styles';
+import Input from "@components/UI/Input/Input";
+import {useState} from "react";
 
 interface HomeProps {
   postsCount: number;
@@ -30,6 +32,8 @@ interface HomeProps {
 const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
   const { t } = useTranslation();
   const router = useRouter();
+
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleRouteChange = async (path: string) => {
     await router.push(path);
@@ -49,14 +53,16 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
           <Title
             className={classNames({ subtitle: true })}
           >{t('pages:index.title')}</Title>
-          <Title
-            className={classNames({ smallSubtitle: true })}
-          >{t('pages:index.subtitle')}</Title>
 
           <ButtonWrapper>
             <Button
               text={t('pages:index.startButton')}
               onClick={() => handleRouteChange('/docs')}
+            />
+            <Input
+              value={searchQuery}
+              placeholder={t('components:header.search')}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </ButtonWrapper>
         </Welcome>

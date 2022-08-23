@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 80px;
-  background: ${(props) => props.theme.colors.secondary};
 
   position: fixed;
 
@@ -20,13 +19,27 @@ export const Logo = styled.h1`
   
   cursor: pointer;
   transition: .5s;
-  
-  &:hover {
-    color: ${(props) => props.theme.colors.hover};
-  }
 `;
 
 export const Buttons = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 10px;
+`;
+
+export const HeaderLink = styled.p`
+  margin: 0 20px;
+  transition: .5s;
+
+  font-size: 16px;
+  font-weight: 900;
+  
+  color: ${(props) => props.theme.colors.text};
+
+  cursor: pointer;
+  
+  &.last {
+    border-right: 1px solid white;
+    padding-right: 30px;
+  }
 `;

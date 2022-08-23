@@ -1,7 +1,6 @@
 {
   "index": {
     "title": "Fake JSON REST API data distribution",
-    "subtitle": "Prototype and test your API with Mocker",
     "startButton": "Let's jump into",
     "intro": "is free JSON RESP API data distributor for prototyping and testing API with mock data.",
     "linkTo": "All endpoint are available to use under this URL address",

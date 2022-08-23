@@ -5,6 +5,6 @@ export interface ThemeProps {
     text: string;
     hover: string;
     link: string;
-    bg: string;
+    background: string;
   }
 }

@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Toggler = styled.div`
   width: 35px;
   height: 35px;
-
-  border: 1px solid ${(props) => props.theme.colors.text};
   
   border-radius: 50%;
 

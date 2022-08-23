@@ -2,21 +2,21 @@ import styled from 'styled-components';
 
 export const WelcomeWrapper = styled.div`
   width: 100%;
-  height: 700px;
+  height: 80vh;
   
-  background-image: ${(props) => props.theme.colors.bg};
+  background-image: ${(props) => props.theme.colors.background};
   display: flex;
   
   align-items: center;
 `;
 
 export const Welcome = styled.div`
-  width: 65%;
+  width: 700px;
   height: 75%;
   
   text-align: center;
 
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
 `;
 
 export const Title = styled.h1`
@@ -30,10 +30,6 @@ export const Title = styled.h1`
     font-size: 3.75rem;
     font-weight: 900;
   }
-  &.smallSubtitle {
-    font-size: 32px;
-    font-weight: 100;
-  }
   &.contentTitle {
     font-size: 32px;
     margin: 0;
@@ -42,8 +38,12 @@ export const Title = styled.h1`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 300px;
+  width: 350px;
   margin: 0 auto;
+  
+  justify-content: space-between;
+  
+  display: flex;
 `;
 
 export const ContentWrapper = styled.div`

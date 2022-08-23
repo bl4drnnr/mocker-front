@@ -4,20 +4,17 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  border: 1px solid ${(props) => props.theme.colors.text};
-  
+
+  background-color: rgba(30, 41, 59, .85);
+
   padding: 8px;
   margin: 0 5px;
   border-radius: 8px;
 
   cursor: pointer;
-  
-  &:hover {
-    background-color: ${(props) => props.theme.colors.hover};
-  }
 `;
 
 export const Text = styled.p`
-  color: ${(props) => props.theme.colors.text};
+  color: rgba(238, 238, 238, .85);
+  font-size: 14px;
 `;
