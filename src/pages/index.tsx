@@ -35,10 +35,11 @@ import {
 interface HomeProps {
   postsCount: number;
   usersCount: number;
-  todosCount: number
+  todosCount: number;
+  url: string;
 }
 
-const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
+const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -46,6 +47,10 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
 
   const handleRouteChange = async (path: string) => {
     await router.push(path);
+  };
+
+  const fetchData = async (path: string) => {
+    window.open(`${url}${path}`, '_blank');
   };
 
   return (
@@ -81,12 +86,11 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
       </WelcomeWrapper>
 
       <ContentWrapper>
-
         <IntroContent>
-
           <Title className={classNames({ contentTitle: true })}>
             {t('pages:index.introMenu.intro')}
           </Title>
+
           <Intro><strong>Mocker - </strong>{t('pages:index.intro')}</Intro>
           <Content>
             <Text>{t('pages:index.linkTo')} - <Link>https://data.mockerdistibutor.org</Link></Text>
@@ -95,6 +99,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
           </Content>
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.availableEndpoints')}</Title>
+
           <Content>
             <Text>{t('pages:index.availableEndpoints')}</Text>
             <Text>{t('pages:index.relation')}</Text>
@@ -121,7 +126,6 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               </tr>
               </tbody>
             </Table>
-
           </Content>
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.examples')}</Title>
@@ -135,7 +139,10 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
             </Code>
             <TryButtonWrapper>
-              <Button text={'Try it now!'}/>
+              <Button
+                text={'Try it now!'}
+                onClick={() => fetchData('/todo/list')}
+              />
             </TryButtonWrapper>
           </Content>
 
@@ -147,7 +154,10 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
             </Code>
             <TryButtonWrapper>
-              <Button text={'Try it now!'}/>
+              <Button
+                text={'Try it now!'}
+                onClick={() => fetchData('/post/1')}
+              />
             </TryButtonWrapper>
           </Content>
 
@@ -159,7 +169,10 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
             </Code>
             <TryButtonWrapper>
-              <Button text={'Try it now!'}/>
+              <Button
+                text={'Try it now!'}
+                onClick={() => fetchData('/post?skip=3&take=2')}
+              />
             </TryButtonWrapper>
           </Content>
 
@@ -173,13 +186,16 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
 export const getStaticProps: GetStaticProps = async ({
  locale
 }) => {
-  const postRes = await fetch(`${process.env.DATA_API_URL}/post?count=true`);
+  const isProd = process.env.NODE_ENV === 'production';
+  const url = isProd ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL;
+
+  const postRes = await fetch(`${url}/post?count=true`);
   const postsCount = await postRes.json();
 
-  const usersRes = await fetch(`${process.env.DATA_API_URL}/user?count=true`);
+  const usersRes = await fetch(`${url}/user?count=true`);
   const usersCount = await usersRes.json();
 
-  const todosRes = await fetch(`${process.env.DATA_API_URL}/todo?count=true`);
+  const todosRes = await fetch(`${url}/todo?count=true`);
   const todosCount = await todosRes.json();
 
   return {
@@ -187,7 +203,8 @@ export const getStaticProps: GetStaticProps = async ({
       ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
       postsCount: postsCount.count,
       usersCount: usersCount.count,
-      todosCount: todosCount.count
+      todosCount: todosCount.count,
+      url
     }
   };
 };
