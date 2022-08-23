@@ -45,7 +45,7 @@ export const HeaderLink = styled.p`
   }
   
   &.last {
-    border-right: 1px solid white;
+    border-right: 1px solid ${(props) => props.theme.colors.text};
     padding-right: 30px;
   }
 `;

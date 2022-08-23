@@ -127,6 +127,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.examples')}</Title>
           <Content>
             <Text>{t('pages:index.examplesText')}</Text>
+            <Link>https://data.mockerdistibutor.org</Link>
           </Content>
 
         </IntroContent>

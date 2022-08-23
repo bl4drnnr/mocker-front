@@ -18,6 +18,13 @@
     "examplesText": "Here is a couple of example on how you can use endpoints in your own API and for what kind of response you can wait."
   },
   "about": {
-    "title": "About project"
+    "title": "About project",
+    "contact": "Contact me",
+    "description": "is absolutely open-source and free project, that had been created as learn project to learn 3 frameworks - ",
+    "descriptionAws": " and all AWS deployment staff.",
+    "and": "and",
+    "more": "More about every part of project - front-end and back-end - you can find on my ",
+    "pages": " pages.",
+    "contactTitle": "In case of any questions about project(s) always feel free to contact me."
   }
 }

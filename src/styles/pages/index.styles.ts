@@ -22,6 +22,7 @@ export const Welcome = styled.div`
 export const Title = styled.h1`
   font-size: 64px;
   margin-bottom: 35px;
+  font-weight: 900;
 
   color: ${(props) => props.theme.colors.text};
   
@@ -87,6 +88,7 @@ export const Link = styled.span`
   display: inline-flex;
   color: ${(props) => props.theme.colors.link};
   cursor: pointer;
+  font-weight: 100;
 
   &.endpoint {
     font-size: 28px;
@@ -102,7 +104,7 @@ export const Link = styled.span`
 
 export const LinkTd = styled.td`
   font-size: 28px;
-  font-weight: 300;
+  font-weight: 100;
 
   color: ${(props) => props.theme.colors.link} !important;
 

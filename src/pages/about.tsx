@@ -1,5 +1,6 @@
 import React from 'react';
 
+import classNames from 'classnames';
 import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -9,6 +10,10 @@ import { Container, Content, Link, Title, Wrapper } from '@styles/pages/about.st
 
 const About = () => {
   const { t } = useTranslation();
+
+  const handleRedirect = (path: string) => {
+    window.open(path, '_blank');
+  };
 
   return (
     <Default
@@ -22,13 +27,30 @@ const About = () => {
           <Title>{t('pages:about.title')}</Title>
 
           <Content>
-            <strong>Mocker - &nbsp;</strong>
-            is absolutely&nbsp;<Link>open-source</Link>&nbsp;and free project, that had been created as learn project to learn 3 frameworks - React + Next.js and Nest.js and all AWS deployment staff.
+            <strong>Mocker</strong> - {t('pages:about.description')}
+            <Link onClick={() => handleRedirect('https://reactjs.org/')}>React</Link> + <Link
+              onClick={() => handleRedirect('https://nextjs.org/')}
+            >Next.js</Link> {t('pages:about.and')} <Link
+            onClick={() => handleRedirect('https://nestjs.com/')}
+          >Nest.js</Link>{t('pages:about.descriptionAws')}
           </Content>
-          <Content>More about every part of project - front-end and back-end - you can find on
-            <strong>GitHub</strong>
-            pages listed below.
+          <Content>{t('pages:about.more')}<strong>GitHub</strong>{t('pages:about.pages')}</Content>
+
+          <Title>{t('pages:about.contact')}</Title>
+          <Content>{t('pages:about.contactTitle')}</Content>
+          <Content>
+            <Link
+              className={classNames({ contact: true })}
+              onClick={() => handleRedirect('https://github.com/bl4drnnr')}
+            >GitHub</Link>
+            <Link
+              className={classNames({ contact: true })}
+              onClick={() => handleRedirect('https://www.linkedin.com/in/mikhail-bahdashych-a8561a209/')}
+            >LinkedIn</Link>
           </Content>
+          <Content
+            className={classNames({ contact: true })}
+          >Email: mikhail.bahdashych@protonmail.com</Content>
         </Container>
       </Wrapper>
     </Default>
