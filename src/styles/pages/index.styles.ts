@@ -138,9 +138,10 @@ export const Table = styled.table`
 `;
 
 export const Code = styled.div`
-  width: 100%;
+  width: 650px;
   padding: 12px;
   border-radius: 12px;
+  
   display: flex;
   flex-direction: column;
 
@@ -157,4 +158,9 @@ export const CodeSpan = styled.span`
   border-radius: 5px;
   background: ${(props) => props.theme.colors.primary};
   font-family: 'Roboto Mono', sans-serif;
+`;
+
+export const TryButtonWrapper = styled.div`
+  width: 130px;
+  margin-top: 20px;
 `;

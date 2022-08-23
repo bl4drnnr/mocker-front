@@ -23,7 +23,13 @@ import {
   Link,
   Content,
   Table,
-  LinkTd, InputSearchBox, SearchIcon, Code, CodeLine, CodeSpan
+  LinkTd,
+  InputSearchBox,
+  SearchIcon,
+  Code,
+  CodeLine,
+  CodeSpan,
+  TryButtonWrapper
 } from '@styles/pages/index.styles';
 
 interface HomeProps {
@@ -81,15 +87,11 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
           <Title className={classNames({ contentTitle: true })}>
             {t('pages:index.introMenu.intro')}
           </Title>
-          <Intro><strong>Mocker - &nbsp;</strong>{t('pages:index.intro')}</Intro>
+          <Intro><strong>Mocker - </strong>{t('pages:index.intro')}</Intro>
           <Content>
-            <Text>{t('pages:index.linkTo')} -&nbsp;
-              <Link>https://data.mockerdistibutor.org</Link>
-            </Text>
+            <Text>{t('pages:index.linkTo')} - <Link>https://data.mockerdistibutor.org</Link></Text>
             <Text>{t('pages:index.endpointsDescription1')}</Text>
-            <Text>
-              {t('pages:index.endpointsDescription2')}&nbsp;<Link>{t('pages:index.docs')}.</Link>
-            </Text>
+            <Text>{t('pages:index.endpointsDescription2')} <Link>{t('pages:index.docs')}.</Link></Text>
           </Content>
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.availableEndpoints')}</Title>
@@ -132,7 +134,9 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               <CodeLine>.then(response ={'>'} response.json())</CodeLine>
               <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
             </Code>
-            <Button text={'Try it now!'}/>
+            <TryButtonWrapper>
+              <Button text={'Try it now!'}/>
+            </TryButtonWrapper>
           </Content>
 
           <Content>
@@ -142,7 +146,9 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               <CodeLine>.then(response ={'>'} response.json())</CodeLine>
               <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
             </Code>
-            <Button text={'Try it now!'}/>
+            <TryButtonWrapper>
+              <Button text={'Try it now!'}/>
+            </TryButtonWrapper>
           </Content>
 
           <Content>
@@ -152,7 +158,9 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               <CodeLine>.then(response ={'>'} response.json())</CodeLine>
               <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
             </Code>
-            <Button text={'Try it now!'}/>
+            <TryButtonWrapper>
+              <Button text={'Try it now!'}/>
+            </TryButtonWrapper>
           </Content>
 
         </IntroContent>
