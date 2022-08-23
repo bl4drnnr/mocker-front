@@ -10,7 +10,7 @@ export const BasicInput = styled.input`
   border-radius: 8px;
   
   &.searchBar {
-    padding-left: 50px;
+    padding-left: 40px;
     cursor: pointer;
   }
 

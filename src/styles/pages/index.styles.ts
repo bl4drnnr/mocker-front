@@ -52,13 +52,14 @@ export const InputSearchBox = styled.div`
 
 export const SearchIcon = styled.div`
   position: absolute;
-  top: 6px;
+  top: 10px;
   left: 10px;
 `;
 
 export const ContentWrapper = styled.div`
   width: 100%;
   background: ${(props) => props.theme.colors.secondary};
+  padding-bottom: 30px;
 `;
 
 export const IntroContent = styled.div`
@@ -134,4 +135,26 @@ export const Table = styled.table`
   td {
     font-size: 24px;
   }
+`;
+
+export const Code = styled.div`
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+
+  background: ${(props) => props.theme.colors.primary};
+`;
+
+export const CodeLine = styled.span`
+  color: ${(props) => props.theme.colors.text};
+  font-family: 'Roboto Mono', sans-serif;
+`;
+
+export const CodeSpan = styled.span`
+  padding: 3px;
+  border-radius: 5px;
+  background: ${(props) => props.theme.colors.primary};
+  font-family: 'Roboto Mono', sans-serif;
 `;

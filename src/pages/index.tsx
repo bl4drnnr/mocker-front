@@ -23,7 +23,7 @@ import {
   Link,
   Content,
   Table,
-  LinkTd, InputSearchBox, SearchIcon
+  LinkTd, InputSearchBox, SearchIcon, Code, CodeLine, CodeSpan
 } from '@styles/pages/index.styles';
 
 interface HomeProps {
@@ -52,9 +52,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
       <WelcomeWrapper>
         <Welcome>
           <Title>MOCKER</Title>
-          <Title
-            className={classNames({ subtitle: true })}
-          >{t('pages:index.title')}</Title>
+          <Title className={classNames({ subtitle: true })}>{t('pages:index.title')}</Title>
 
           <ButtonWrapper>
             <Button
@@ -63,7 +61,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
             />
             <InputSearchBox>
               <SearchIcon>
-                <Image src={Search} width={30} height={30} alt={'Search'} />
+                <Image src={Search} width={20} height={20} alt={'Search'} />
               </SearchIcon>
               <Input
                 className={{ searchBar: true }}
@@ -125,9 +123,36 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
           </Content>
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.examples')}</Title>
+
           <Content>
             <Text>{t('pages:index.examplesText')}</Text>
-            <Link>https://data.mockerdistibutor.org</Link>
+            <Text>All records for one resource are available under <CodeSpan>/list</CodeSpan> resource route.</Text>
+            <Code>
+              <CodeLine>fetch(&apos;https://data.mockerdistibutor.org/todo/list&apos;)</CodeLine>
+              <CodeLine>.then(response ={'>'} response.json())</CodeLine>
+              <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
+            </Code>
+            <Button text={'Try it now!'}/>
+          </Content>
+
+          <Content>
+            <Text>If you want to get only one specific record, just specify <CodeSpan>id</CodeSpan> of the record for resource.</Text>
+            <Code>
+              <CodeLine>fetch(&apos;https://data.mockerdistibutor.org/post/1&apos;)</CodeLine>
+              <CodeLine>.then(response ={'>'} response.json())</CodeLine>
+              <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
+            </Code>
+            <Button text={'Try it now!'}/>
+          </Content>
+
+          <Content>
+            <Text>Also, pagination with total quantity (<CodeSpan>count</CodeSpan> param - optional) of resource records is available with <CodeSpan>take</CodeSpan> and <CodeSpan>skip</CodeSpan> params.</Text>
+            <Code>
+              <CodeLine>fetch(&apos;https://data.mockerdistibutor.org/post?skip=3&take=2&apos;)</CodeLine>
+              <CodeLine>.then(response ={'>'} response.json())</CodeLine>
+              <CodeLine>.then(json ={'>'} console.log(json))</CodeLine>
+            </Code>
+            <Button text={'Try it now!'}/>
           </Content>
 
         </IntroContent>
