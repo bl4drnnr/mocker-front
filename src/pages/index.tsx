@@ -47,7 +47,6 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
   const { t } = useTranslation();
   const router = useRouter();
 
-  const [searchQuery, setSearchQuery] = useState('');
   const [showModal, setShowModal] = useState(false);
 
   const handleRouteChange = async (path: string) => {

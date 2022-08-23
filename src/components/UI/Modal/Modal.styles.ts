@@ -21,7 +21,6 @@ export const ModalWrapper = styled.div`
 
 export const ModalContainer = styled.div`
   width: 800px;
-  height: 500px;
   
   border-radius: 16px;
   padding: 24px;
