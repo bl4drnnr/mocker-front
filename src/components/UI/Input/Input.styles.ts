@@ -8,6 +8,11 @@ export const BasicInput = styled.input`
 
   padding: 12px;
   border-radius: 8px;
+  
+  &.searchBar {
+    padding-left: 50px;
+    cursor: pointer;
+  }
 
   &:hover {
     background-color: ${(props) => props.theme.colors.hover};

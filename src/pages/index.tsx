@@ -4,11 +4,13 @@ import classNames from 'classnames';
 import type { GetStaticProps, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Button from '@components/UI/Button/Button';
 import Input from '@components/UI/Input/Input';
 import Default from '@layouts/Default';
+import Search from '@public/img/search.svg';
 import {
   WelcomeWrapper,
   Title,
@@ -21,7 +23,7 @@ import {
   Link,
   Content,
   Table,
-  LinkTd
+  LinkTd, InputSearchBox, SearchIcon
 } from '@styles/pages/index.styles';
 
 interface HomeProps {
@@ -60,11 +62,17 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount }) => {
               text={t('pages:index.startButton')}
               onClick={() => handleRouteChange('/docs')}
             />
-            <Input
-              value={searchQuery}
-              placeholder={t('components:header.search')}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <InputSearchBox>
+              <SearchIcon>
+                <Image src={Search} width={30} height={30} alt={'Search'} />
+              </SearchIcon>
+              <Input
+                className={{ searchBar: true }}
+                value={searchQuery}
+                placeholder={t('components:header.search')}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </InputSearchBox>
           </ButtonWrapper>
         </Welcome>
       </WelcomeWrapper>

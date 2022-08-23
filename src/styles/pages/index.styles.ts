@@ -37,12 +37,22 @@ export const Title = styled.h1`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 350px;
+  width: 370px;
   margin: 0 auto;
   
   justify-content: space-between;
   
   display: flex;
+`;
+
+export const InputSearchBox = styled.div`
+  position: relative;
+`;
+
+export const SearchIcon = styled.div`
+  position: absolute;
+  top: 6px;
+  left: 10px;
 `;
 
 export const ContentWrapper = styled.div`
