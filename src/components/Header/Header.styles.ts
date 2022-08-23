@@ -27,7 +27,7 @@ export const Logo = styled.h1`
 export const Buttons = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 20px;
 `;
 
 export const HeaderLink = styled.p`

@@ -21,7 +21,7 @@ export const InnerContainer = styled.div`
   align-items: center;
 `;
 
-export const Text = styled.p`
+export const FooterLink = styled.p`
   font-size: 14px;
   color: ${(props) => props.theme.colors.text};
   opacity: .5;

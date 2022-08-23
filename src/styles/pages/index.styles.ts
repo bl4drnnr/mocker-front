@@ -19,30 +19,12 @@ export const Welcome = styled.div`
   margin: 50px auto 0 auto;
 `;
 
-export const Title = styled.h1`
-  font-size: 64px;
-  margin-bottom: 35px;
-  font-weight: 900;
-
-  color: ${(props) => props.theme.colors.text};
-  
-  &.subtitle {
-    font-size: 3.75rem;
-    font-weight: 900;
-  }
-  &.contentTitle {
-    font-size: 32px;
-    margin: 0;
-    padding-top: 50px;
-  }
+export const ButtonWrapper = styled.div`
+  display: flex;
 `;
 
-export const ButtonWrapper = styled.div`
-  width: 370px;
+export const ButtonContainer = styled.div`
   margin: 0 auto;
-  
-  justify-content: space-between;
-  
   display: flex;
 `;
 
@@ -54,6 +36,18 @@ export const SearchIcon = styled.div`
   position: absolute;
   top: 10px;
   left: 10px;
+`;
+
+export const QuickSearchInput = styled.div`
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border-radius: 8px;
+  background-color: rgba(30, 41, 59, .85);
+  color: rgba(238, 238, 238, .85);
+  cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.colors.hover};
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -77,46 +71,6 @@ export const Intro = styled.p`
   color: ${(props) => props.theme.colors.text};
 `;
 
-export const Text = styled.p`
-  padding-bottom: 10px;
-  font-size: 18px;
-  font-weight: 300;
-  
-  color: ${(props) => props.theme.colors.text};
-`;
-
-export const Link = styled.span`
-  display: inline-flex;
-  color: ${(props) => props.theme.colors.link};
-  cursor: pointer;
-  font-weight: 100;
-
-  &.endpoint {
-    font-size: 28px;
-    font-weight: 100;
-    display: block;
-    padding: 10px 0;
-  }
-  
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-export const LinkTd = styled.td`
-  font-size: 28px;
-  font-weight: 100;
-
-  color: ${(props) => props.theme.colors.link} !important;
-
-  padding: 10px 0;
-  
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
 export const Content = styled.div`
   width: 100%;
   padding: 50px 50px 0 50px;
@@ -135,29 +89,6 @@ export const Table = styled.table`
   td {
     font-size: 24px;
   }
-`;
-
-export const Code = styled.div`
-  width: 650px;
-  padding: 12px;
-  border-radius: 12px;
-  
-  display: flex;
-  flex-direction: column;
-
-  background: ${(props) => props.theme.colors.primary};
-`;
-
-export const CodeLine = styled.span`
-  color: ${(props) => props.theme.colors.text};
-  font-family: 'Roboto Mono', sans-serif;
-`;
-
-export const CodeSpan = styled.span`
-  padding: 3px;
-  border-radius: 5px;
-  background: ${(props) => props.theme.colors.primary};
-  font-family: 'Roboto Mono', sans-serif;
 `;
 
 export const TryButtonWrapper = styled.div`

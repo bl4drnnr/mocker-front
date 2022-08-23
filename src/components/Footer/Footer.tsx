@@ -2,7 +2,8 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 
-import { Container, FooterLinks, InnerContainer, Text } from '@components/Footer/Footer.styles';
+import { Container, FooterLinks, InnerContainer, FooterLink } from '@components/Footer/Footer.styles';
+
 
 const Footer = () => {
   const router = useRouter();
@@ -14,16 +15,10 @@ const Footer = () => {
   return (
     <Container>
       <InnerContainer>
-        <Text
-          onClick={() => handlerRedirect('/')}
-        >Mocker © 2022 All right reserved.</Text>
+        <FooterLink onClick={() => handlerRedirect('/')}>Mocker © 2022 All right reserved.</FooterLink>
         <FooterLinks>
-          <Text
-            onClick={() => handlerRedirect('/docs')}
-          >Docs</Text>
-          <Text
-            onClick={() => handlerRedirect('/about')}
-          >About</Text>
+          <FooterLink onClick={() => handlerRedirect('/docs')}>Docs</FooterLink>
+          <FooterLink onClick={() => handlerRedirect('/about')}>About</FooterLink>
         </FooterLinks>
       </InnerContainer>
     </Container>

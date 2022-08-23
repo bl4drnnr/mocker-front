@@ -8,29 +8,31 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import Button from '@components/UI/Button/Button';
-import Input from '@components/UI/Input/Input';
 import Modal from '@components/UI/Modal/Modal';
 import Default from '@layouts/Default';
 import Search from '@public/img/search.svg';
 import {
-  WelcomeWrapper,
+  Link,
+  CodeSpan,
+  Code,
+  CodeLine,
   Title,
+  Text
+} from '@styles/common/common.styles';
+import {
+  WelcomeWrapper,
   Welcome,
   ButtonWrapper,
   ContentWrapper,
   IntroContent,
   Intro,
-  Text,
-  Link,
   Content,
   Table,
-  LinkTd,
   InputSearchBox,
   SearchIcon,
-  Code,
-  CodeLine,
-  CodeSpan,
-  TryButtonWrapper
+  TryButtonWrapper,
+  QuickSearchInput,
+  ButtonContainer
 } from '@styles/pages/index.styles';
 
 interface HomeProps {
@@ -62,28 +64,29 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
         about: t('components:header.about')
       }}
     >
-      {/*<Modal/>*/}
       <WelcomeWrapper>
         <Welcome>
           <Title>MOCKER</Title>
           <Title className={classNames({ subtitle: true })}>{t('pages:index.title')}</Title>
 
           <ButtonWrapper>
-            <Button
-              text={t('pages:index.startButton')}
-              onClick={() => handleRouteChange('/docs')}
-            />
-            <InputSearchBox>
-              <SearchIcon>
-                <Image src={Search} width={20} height={20} alt={'Search'} />
-              </SearchIcon>
-              <Input
-                className={{ searchBar: true }}
-                value={searchQuery}
-                placeholder={t('components:header.search')}
-                onChange={(e) => setSearchQuery(e.target.value)}
+            <ButtonContainer>
+              <Button
+                text={t('pages:index.startButton')}
+                onClick={() => handleRouteChange('/docs')}
               />
-            </InputSearchBox>
+              <InputSearchBox>
+                <SearchIcon>
+                  <Image src={Search} width={20} height={20} alt={'Search'} />
+                </SearchIcon>
+                <QuickSearchInput
+                  onClick={() => setShowModal(true)}
+                >
+                  {t('components:header.search')}
+                </QuickSearchInput>
+                {showModal ? (<Modal onClose={() => setShowModal(false)}/>) : null}
+              </InputSearchBox>
+            </ButtonContainer>
           </ButtonWrapper>
         </Welcome>
       </WelcomeWrapper>
@@ -116,15 +119,15 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
               </thead>
               <tbody>
               <tr>
-                <LinkTd>/user</LinkTd>
+                <Link className={classNames({ tableLink: true })}>/user</Link>
                 <td>{usersCount}</td>
               </tr>
               <tr>
-                <LinkTd>/post</LinkTd>
+                <Link className={classNames({ tableLink: true })}>/post</Link>
                 <td>{postsCount}</td>
               </tr>
               <tr>
-                <LinkTd>/todo</LinkTd>
+                <Link className={classNames({ tableLink: true })}>/todo</Link>
                 <td>{todosCount}</td>
               </tr>
               </tbody>

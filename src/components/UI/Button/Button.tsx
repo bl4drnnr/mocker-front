@@ -1,5 +1,5 @@
 import { ButtonProps } from '@components/UI/Button/Button.interface';
-import { Container, Text } from '@components/UI/Button/Button.styles';
+import { ButtonContent, Container } from '@components/UI/Button/Button.styles';
 
 const Button =
 ({
@@ -10,7 +10,7 @@ const Button =
     <Container
       onClick={onClick}
     >
-      <Text>{text}</Text>
+      <ButtonContent>{text}</ButtonContent>
     </Container>
   );
 };

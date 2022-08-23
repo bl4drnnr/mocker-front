@@ -6,7 +6,8 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Default from '@layouts/Default';
-import { Container, Content, Link, Title, Wrapper } from '@styles/pages/about.styles';
+import { Text, Link } from '@styles/common/common.styles';
+import { Container, Title, Wrapper } from '@styles/pages/about.styles';
 
 const About = () => {
   const { t } = useTranslation();
@@ -26,31 +27,39 @@ const About = () => {
         <Container>
           <Title>{t('pages:about.title')}</Title>
 
-          <Content>
+          <Text
+            className={classNames({ about: true })}
+          >
             <strong>Mocker</strong> - {t('pages:about.description')}
             <Link onClick={() => handleRedirect('https://reactjs.org/')}>React</Link> + <Link
               onClick={() => handleRedirect('https://nextjs.org/')}
             >Next.js</Link> {t('pages:about.and')} <Link
             onClick={() => handleRedirect('https://nestjs.com/')}
           >Nest.js</Link>{t('pages:about.descriptionAws')}
-          </Content>
-          <Content>{t('pages:about.more')}<strong>GitHub</strong>{t('pages:about.pages')}</Content>
+          </Text>
+          <Text
+            className={classNames({ about: true })}
+          >{t('pages:about.more')}<strong>GitHub</strong>{t('pages:about.pages')}</Text>
 
           <Title>{t('pages:about.contact')}</Title>
-          <Content>{t('pages:about.contactTitle')}</Content>
-          <Content>
+          <Text
+            className={classNames({ about: true })}
+          >{t('pages:about.contactTitle')}
             <Link
               className={classNames({ contact: true })}
               onClick={() => handleRedirect('https://github.com/bl4drnnr')}
-            >GitHub</Link>
-            <Link
+            >GitHub</Link> or <Link
               className={classNames({ contact: true })}
               onClick={() => handleRedirect('https://www.linkedin.com/in/mikhail-bahdashych-a8561a209/')}
-            >LinkedIn</Link>
-          </Content>
-          <Content
-            className={classNames({ contact: true })}
-          >Email: mikhail.bahdashych@protonmail.com</Content>
+            >LinkedIn.</Link>
+          </Text>
+
+          <Text
+            className={classNames({ contact: true, about: true })}
+          >Email: <Link onClick={() => handleRedirect('mailto: mikhail.bahdashych@protonmail.com')}>
+              mikhail.bahdashych@protonmail.com
+            </Link>
+          </Text>
         </Container>
       </Wrapper>
     </Default>

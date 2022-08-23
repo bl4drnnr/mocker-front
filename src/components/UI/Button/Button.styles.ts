@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Text = styled.p`
+export const ButtonContent = styled.p`
   color: rgba(238, 238, 238, .85);
   font-size: 14px;
 `;
