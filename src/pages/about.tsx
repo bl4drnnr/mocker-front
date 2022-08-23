@@ -33,7 +33,7 @@ const About = () => {
             <strong>Mocker</strong> - {t('pages:about.description')}
             <Link onClick={() => handleRedirect('https://reactjs.org/')}>React</Link> + <Link
               onClick={() => handleRedirect('https://nextjs.org/')}
-            >Next.js</Link> {t('pages:about.and')} <Link
+            >Next.js</Link> {t('pages:common.and')} <Link
             onClick={() => handleRedirect('https://nestjs.com/')}
           >Nest.js</Link>{t('pages:about.descriptionAws')}
           </Text>

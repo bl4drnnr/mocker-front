@@ -139,7 +139,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
 
           <Content>
             <Text>{t('pages:index.examplesText')}</Text>
-            <Text>All records for one resource are available under <CodeSpan>/list</CodeSpan> resource route.</Text>
+            <Text>{t('pages:index.examples.allRecords1')}<CodeSpan>/list</CodeSpan>{t('pages:index.examples.allRecords2')}</Text>
             <Code>
               <CodeLine>fetch(&apos;https://data.mockerdistibutor.org/todo/list&apos;)</CodeLine>
               <CodeLine>.then(response ={'>'} response.json())</CodeLine>
@@ -154,7 +154,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
           </Content>
 
           <Content>
-            <Text>If you want to get only one specific record, just specify <CodeSpan>id</CodeSpan> of the record for resource.</Text>
+            <Text>{t('pages:index.examples.specificRecord1')}<CodeSpan>id</CodeSpan>{t('pages:index.examples.specificRecord2')}</Text>
             <Code>
               <CodeLine>fetch(&apos;https://data.mockerdistibutor.org/post/1&apos;)</CodeLine>
               <CodeLine>.then(response ={'>'} response.json())</CodeLine>
@@ -169,7 +169,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
           </Content>
 
           <Content>
-            <Text>Also, pagination with total quantity (<CodeSpan>count</CodeSpan> param - optional) of resource records is available with <CodeSpan>take</CodeSpan> and <CodeSpan>skip</CodeSpan> params.</Text>
+            <Text>{t('pages:index.examples.pagination1')}<CodeSpan>count</CodeSpan>{t('pages:index.examples.pagination2')}<CodeSpan>take</CodeSpan> and <CodeSpan>skip</CodeSpan> params.</Text>
             <Code>
               <CodeLine>fetch(&apos;https://data.mockerdistibutor.org/post?skip=3&take=2&apos;)</CodeLine>
               <CodeLine>.then(response ={'>'} response.json())</CodeLine>

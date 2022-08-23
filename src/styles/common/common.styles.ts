@@ -69,6 +69,10 @@ export const Title = styled.h1`
     margin: 0;
     padding-top: 50px;
   }
+
+  @media screen and (max-width: 520px) {
+    font-size: 32px;
+  }
 `;
 
 export const Text = styled.p`
