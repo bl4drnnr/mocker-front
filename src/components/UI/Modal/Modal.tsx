@@ -1,10 +1,14 @@
 import React from 'react';
 
+import { ModalContainer, ModalWrapper } from '@components/UI/Modal/Modal.styles';
+
 const Modal = () => {
   return (
-    <div>
+    <ModalWrapper>
+      <ModalContainer>
 
-    </div>
+      </ModalContainer>
+    </ModalWrapper>
   );
 };
 

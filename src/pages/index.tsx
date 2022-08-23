@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 
 import Button from '@components/UI/Button/Button';
 import Input from '@components/UI/Input/Input';
+import Modal from '@components/UI/Modal/Modal';
 import Default from '@layouts/Default';
 import Search from '@public/img/search.svg';
 import {
@@ -44,6 +45,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
   const router = useRouter();
 
   const [searchQuery, setSearchQuery] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleRouteChange = async (path: string) => {
     await router.push(path);
@@ -60,6 +62,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
         about: t('components:header.about')
       }}
     >
+      {/*<Modal/>*/}
       <WelcomeWrapper>
         <Welcome>
           <Title>MOCKER</Title>
