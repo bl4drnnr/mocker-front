@@ -93,6 +93,18 @@ export const Title = styled.h1`
   }
 `;
 
+export const CommonTitle = styled.h1`
+  font-size: 52px;
+  margin-bottom: 35px;
+  margin-top: 35px;
+
+  color: ${(props) => props.theme.colors.text};
+
+  @media screen and (max-width: 1000px) {
+    font-size: 38px;
+  }
+`;
+
 export const Text = styled.p`
   padding-bottom: 10px;
   font-size: 18px;
@@ -107,5 +119,25 @@ export const Text = styled.p`
       text-indent: 20px;
       font-size: 16px;
     }
+  }
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  height: calc(100vh - 50px);
+  overflow: scroll;
+  &.flex {
+    display: flex;
+  }
+   background: ${(props) => props.theme.colors.primary};
+`;
+
+export const Container = styled.div`
+  width: 60%;
+  height: 300px;
+  margin: 80px auto 0 auto;
+ 
+  @media screen and (max-width: 1000px) {
+    width: 90%;
   }
 `;
