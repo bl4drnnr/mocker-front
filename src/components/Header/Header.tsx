@@ -50,6 +50,12 @@ const Header = ({ docs, about }: HeaderProps) => {
 
       <Buttons>
         <HeaderLink
+          onClick={() => handleRouteChange('/')}
+          className={classNames({ home: true })}
+        >
+          Home
+        </HeaderLink>
+        <HeaderLink
           onClick={() => handleRouteChange('/docs')}
         >
           {docs}

@@ -14,6 +14,10 @@ export const Link = styled.span`
   &:hover {
     text-decoration: underline;
   }
+
+  @media screen and (max-width: 1000px) {
+    overflow-wrap: break-word;
+  }
 `;
 
 export const LinkTd = styled.td`

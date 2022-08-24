@@ -16,7 +16,6 @@ export const Container = styled.div`
   }
 
   @media screen and (max-width: 1000px) {
-    justify-content: end;
     background: ${(props) => props.theme.colors.primary};
   }
 `;
@@ -42,6 +41,10 @@ export const Buttons = styled.div`
   display: flex;
   align-items: center;
   margin-right: 20px;
+  @media screen and (max-width: 1000px) {
+    justify-content: end;
+    width: 100%;
+  }
 `;
 
 export const HeaderLink = styled.p`
@@ -61,5 +64,16 @@ export const HeaderLink = styled.p`
   &.last {
     border-right: 1px solid ${(props) => props.theme.colors.text};
     padding-right: 30px;
+  }
+  
+  &.home {
+    display: none;
+    @media screen and (max-width: 1000px) {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 14px;
   }
 `;
