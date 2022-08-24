@@ -136,7 +136,6 @@ export const Container = styled.div`
   width: 60%;
   height: 300px;
   margin: 80px auto 0 auto;
-  background: wheat;
  
   @media screen and (max-width: 1000px) {
     width: 90%;

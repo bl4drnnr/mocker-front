@@ -62,7 +62,16 @@ export const HeaderLink = styled.p`
   }
   
   &.last {
-    border-right: 1px solid ${(props) => props.theme.colors.text};
+    position: relative;
+    &::after {
+      content: '';
+      width: 1px;
+      height: 100%;
+      background: ${(props) => props.theme.colors.text};
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
     padding-right: 30px;
   }
   
