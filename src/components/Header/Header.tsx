@@ -9,7 +9,7 @@ import { Buttons, Container, HeaderLink, Logo } from '@components/Header/Header.
 import ThemeToggler from '@components/UI/ThemeToggler/ThemeToggler';
 import { theme } from '@store/global/global.state';
 
-const Header = ({ docs, about }: HeaderProps) => {
+const Header = ({ docs, about, colorChangePx }: HeaderProps) => {
   const [currentTheme, setCurrentTheme] = useRecoilState(theme);
   const [background, setBackground] = React.useState(false);
   const router = useRouter();
@@ -35,7 +35,7 @@ const Header = ({ docs, about }: HeaderProps) => {
 
   React.useEffect(() => {
     window.addEventListener('scroll', () => {
-      setBackground(window.scrollY > 620);
+      setBackground(window.scrollY > (colorChangePx !== undefined ? colorChangePx : 620));
     });
   }, []);
 

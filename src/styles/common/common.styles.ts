@@ -126,16 +126,17 @@ export const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 50px);
   overflow: scroll;
+  background: ${(props) => props.theme.colors.primary};
   &.flex {
     display: flex;
   }
-   background: ${(props) => props.theme.colors.primary};
 `;
 
 export const Container = styled.div`
   width: 60%;
   height: 300px;
   margin: 80px auto 0 auto;
+  background: wheat;
  
   @media screen and (max-width: 1000px) {
     width: 90%;

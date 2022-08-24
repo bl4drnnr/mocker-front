@@ -5,8 +5,9 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Default from '@layouts/Default';
-import { Container, Wrapper, Title, Text } from '@styles/common/common.styles';
-import { ContentSidebar } from '@styles/pages/docs.styles';
+import { Container, Title, Text } from '@styles/common/common.styles';
+import { ContentSidebar, Wrapper } from '@styles/pages/docs.styles';
+
 
 const Docs = () => {
   const { t } = useTranslation();
@@ -15,14 +16,15 @@ const Docs = () => {
     <Default
       header={{
         docs: t('components:header.docs'),
-        about: t('components:header.about')
+        about: t('components:header.about'),
+        colorChangePx: 0
       }}
     >
-      <Wrapper>
-        <ContentSidebar />
-        <Container>
-        </Container>
-      </Wrapper>
+      <>
+        <ContentSidebar/>
+        <Wrapper>
+        </Wrapper>
+      </>
     </Default>
   );
 };

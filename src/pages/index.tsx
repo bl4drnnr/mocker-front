@@ -76,12 +76,8 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
                 onClick={() => handleRouteChange('/docs')}
               />
               <InputSearchBox>
-                <SearchIcon>
-                  <Image src={Search} width={20} height={20} alt={'Search'} />
-                </SearchIcon>
-                <QuickSearchInput
-                  onClick={() => setShowModal(true)}
-                >
+                <SearchIcon><Image src={Search} width={20} height={20} alt={'Search'} /></SearchIcon>
+                <QuickSearchInput onClick={() => setShowModal(true)}>
                   {t('components:header.search')}
                 </QuickSearchInput>
                 {showModal ? (<Modal onClose={() => setShowModal(false)}/>) : null}

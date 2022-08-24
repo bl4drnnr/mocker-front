@@ -34,6 +34,7 @@ const Default = ({ children, header }: DefaultLayoutProps): React.ReactElement =
           <Header
             docs={header.docs}
             about={header.about}
+            colorChangePx={header.colorChangePx}
           />
           {children}
           <Footer />
