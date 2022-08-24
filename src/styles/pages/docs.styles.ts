@@ -72,4 +72,17 @@ export const SidebarLink = styled.p`
       background: ${(props) => props.theme.colors.link};
     }
   }
+  &.active {
+    &::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      height: 9px;
+      width: 9px;
+      border: 2px solid ${(props) => props.theme.colors.link};
+      background: ${(props) => props.theme.colors.link};
+      right: 0;
+      transition: .5s;
+    }
+  }
 `;
