@@ -11,6 +11,7 @@ import { theme } from '@store/global/global.state';
 
 const Header = ({ docs, about }: HeaderProps) => {
   const [currentTheme, setCurrentTheme] = useRecoilState(theme);
+  const [background, setBackground] = React.useState(false);
   const router = useRouter();
 
   const handleRouteChange = async (path: string) => {
@@ -32,8 +33,16 @@ const Header = ({ docs, about }: HeaderProps) => {
     if (['dark', 'light'].includes(theme)) setTheme(theme);
   }, []);
 
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      setBackground(window.scrollY > 620);
+    });
+  }, []);
+
   return (
-    <Container>
+    <Container
+      className={classNames({ background })}
+    >
       <Logo
         onClick={() => handleRouteChange('/')}
       >MOCKER

@@ -9,6 +9,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  &.background {
+    background: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 export const Logo = styled.h1`

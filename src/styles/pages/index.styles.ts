@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const WelcomeWrapper = styled.div`
   width: 100%;
-  height: 80vh;
+  height: 700px;
   
   background-image: ${(props) => props.theme.colors.background};
   display: flex;
