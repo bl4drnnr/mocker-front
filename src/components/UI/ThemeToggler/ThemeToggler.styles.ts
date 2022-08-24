@@ -15,4 +15,10 @@ export const Toggler = styled.div`
   &:hover {
     background: ${(props) => props.theme.colors.hover};
   }
+
+  @media screen and (max-width: 1000px) {
+    &:hover {
+      background: none;
+    }
+  }
 `;

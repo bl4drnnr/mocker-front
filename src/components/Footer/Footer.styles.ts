@@ -19,6 +19,10 @@ export const InnerContainer = styled.div`
   
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+  }
 `;
 
 export const FooterLink = styled.p`
@@ -30,6 +34,10 @@ export const FooterLink = styled.p`
   
   &:hover {
     color: ${(props) => props.theme.colors.hover}
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: 12px;
   }
 `;
 

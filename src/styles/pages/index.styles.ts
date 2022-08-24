@@ -48,6 +48,9 @@ export const QuickSearchInput = styled.div`
   &:hover {
     background-color: ${(props) => props.theme.colors.hover};
   }
+  @media screen and (max-width: 1000px) {
+    
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -59,6 +62,10 @@ export const ContentWrapper = styled.div`
 export const IntroContent = styled.div`
   width: 65%;
   margin: 0 auto;
+  
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+  }
 `;
 
 export const Intro = styled.p`
@@ -88,6 +95,10 @@ export const Table = styled.table`
   
   td {
     font-size: 24px;
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 90%;
   }
 `;
 

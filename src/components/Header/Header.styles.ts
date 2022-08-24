@@ -9,8 +9,14 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 98;
   
   &.background {
+    background: ${(props) => props.theme.colors.primary};
+  }
+
+  @media screen and (max-width: 1000px) {
+    justify-content: end;
     background: ${(props) => props.theme.colors.primary};
   }
 `;
@@ -25,6 +31,10 @@ export const Logo = styled.h1`
 
   &:hover {
     color: ${(props) => props.theme.colors.hover};
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
   }
 `;
 

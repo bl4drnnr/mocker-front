@@ -13,6 +13,9 @@ export const Container = styled.div`
   width: 60%;
   height: 300px;
   margin: 80px auto 0 auto;
+  @media screen and (max-width: 1000px) {
+    width: 90%;
+  }
 `;
 
 export const Title = styled.h1`
@@ -21,4 +24,8 @@ export const Title = styled.h1`
   margin-top: 35px;
 
   color: ${(props) => props.theme.colors.text};
+
+  @media screen and (max-width: 1000px) {
+    font-size: 38px;
+  }
 `;

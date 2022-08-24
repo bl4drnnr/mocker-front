@@ -39,11 +39,19 @@ export const Code = styled.div`
   flex-direction: column;
 
   background: ${(props) => props.theme.colors.primary};
+
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+  }
 `;
 
 export const CodeLine = styled.span`
   color: ${(props) => props.theme.colors.text};
   font-family: 'Roboto Mono', sans-serif;
+  
+  @media screen and (max-width: 1000px) {
+    overflow-wrap: break-word;
+  }
 `;
 
 export const CodeSpan = styled.span`
@@ -63,15 +71,21 @@ export const Title = styled.h1`
   &.subtitle {
     font-size: 3.75rem;
     font-weight: 900;
+    @media screen and (max-width: 1000px) {
+      font-size: 2.5rem;
+    }
   }
   &.contentTitle {
     font-size: 32px;
     margin: 0;
     padding-top: 50px;
+    @media screen and (max-width: 1000px) {
+      font-size: 24px;
+    }
   }
 
-  @media screen and (max-width: 520px) {
-    font-size: 32px;
+  @media screen and (max-width: 1000px) {
+    font-size: 48px;
   }
 `;
 
@@ -85,5 +99,9 @@ export const Text = styled.p`
   &.about {
     text-indent: 50px;
     font-size: 22px;
+    @media screen and (max-width: 1000px) {
+      text-indent: 20px;
+      font-size: 16px;
+    }
   }
 `;
