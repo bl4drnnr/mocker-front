@@ -10,7 +10,7 @@ export const WelcomeWrapper = styled.div`
   align-items: center;
 `;
 
-export const Welcome = styled.div`
+export const WelcomeContainer = styled.div`
   width: 700px;
   height: 75%;
   
@@ -59,7 +59,7 @@ export const ContentWrapper = styled.div`
   padding-bottom: 30px;
 `;
 
-export const IntroContent = styled.div`
+export const ContentContainer = styled.div`
   width: 65%;
   margin: 0 auto;
   
@@ -68,7 +68,7 @@ export const IntroContent = styled.div`
   }
 `;
 
-export const Intro = styled.p`
+export const IntroTitle = styled.p`
   padding-top: 50px;
   text-align: center;
   

@@ -4,46 +4,33 @@ import classNames from 'classnames';
 import type { GetStaticProps, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
+import AvailableEndpoints from '@components/pages/index/AvailableEndpoints.component';
+import Intro from '@components/pages/index/Intro.component';
+import WelcomeComponent from '@components/pages/index/Welcome.component';
 import Button from '@components/UI/Button/Button';
-import Modal from '@components/UI/Modal/Modal';
 import Default from '@layouts/Default';
-import Search from '@public/img/search.svg';
 import {
-  Link,
   CodeSpan,
   Code,
   CodeLine,
   Title,
   Text,
-  LinkTd
 } from '@styles/common/common.styles';
 import {
-  WelcomeWrapper,
-  Welcome,
-  ButtonWrapper,
   ContentWrapper,
-  IntroContent,
-  Intro,
+  ContentContainer,
   Content,
-  Table,
-  InputSearchBox,
-  SearchIcon,
   TryButtonWrapper,
-  QuickSearchInput,
-  ButtonContainer
 } from '@styles/pages/index.styles';
 
 interface HomeProps {
-  postsCount: number;
-  usersCount: number;
-  todosCount: number;
-  url: string;
+  endpoints: Array<{ endpoint: string, count: number }>
+  url: string
 }
 
-const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) => {
+const Home: NextPage<HomeProps> = ({ endpoints, url }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -64,71 +51,35 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
         about: t('components:header.about')
       }}
     >
-      <WelcomeWrapper>
-        <Welcome>
-          <Title>MOCKER</Title>
-          <Title className={classNames({ subtitle: true })}>{t('pages:index.title')}</Title>
-
-          <ButtonWrapper>
-            <ButtonContainer>
-              <Button
-                text={t('pages:index.startButton')}
-                onClick={() => handleRouteChange('/docs')}
-              />
-              <InputSearchBox>
-                <SearchIcon><Image src={Search} width={20} height={20} alt={'Search'} /></SearchIcon>
-                <QuickSearchInput onClick={() => setShowModal(true)}>
-                  {t('components:header.search')}
-                </QuickSearchInput>
-                {showModal ? (<Modal onClose={() => setShowModal(false)}/>) : null}
-              </InputSearchBox>
-            </ButtonContainer>
-          </ButtonWrapper>
-        </Welcome>
-      </WelcomeWrapper>
+      <WelcomeComponent
+        title={t('pages:index.title')}
+        startButton={t('pages:index.startButton')}
+        search={t('components:header.search')}
+        handleRedirect={handleRouteChange}
+        showModal={() => setShowModal(true)}
+      />
 
       <ContentWrapper>
-        <IntroContent>
-          <Title className={classNames({ contentTitle: true })}>
-            {t('pages:index.introMenu.intro')}
-          </Title>
+        <ContentContainer>
 
-          <Intro><strong>Mocker - </strong>{t('pages:index.intro')}</Intro>
-          <Content>
-            <Text>{t('pages:index.linkTo')} - <Link>https://data.mockerdistibutor.org</Link></Text>
-            <Text>{t('pages:index.endpointsDescription1')}</Text>
-            <Text>{t('pages:index.endpointsDescription2')} <Link>{t('pages:index.docs')}.</Link></Text>
-          </Content>
+          <Intro
+            title={t('pages:index.introMenu.intro')}
+            introText={t('pages:index.intro')}
+            linkTo={t('pages:index.linkTo')}
+            description1={t('pages:index.endpointsDescription1')}
+            description2={t('pages:index.endpointsDescription2')}
+            docs={t('pages:index.docs')}
+          />
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.availableEndpoints')}</Title>
 
-          <Content>
-            <Text>{t('pages:index.availableEndpoints')}</Text>
-            <Text>{t('pages:index.relation')}</Text>
-
-            <Table>
-              <thead>
-              <tr>
-                <th>Endpoint</th>
-                <th>{t('pages:index.quantity')}</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <LinkTd className={classNames({ tableLink: true })}>/user</LinkTd>
-                <td>{usersCount}</td>
-              </tr>
-              <tr>
-                <LinkTd className={classNames({ tableLink: true })}>/post</LinkTd>
-                <td>{postsCount}</td>
-              </tr>
-              <tr>
-                <LinkTd className={classNames({ tableLink: true })}>/todo</LinkTd>
-                <td>{todosCount}</td>
-              </tr>
-              </tbody>
-            </Table>
-          </Content>
+          <AvailableEndpoints
+            availableEndpointsIntro={t('pages:index.introMenu.availableEndpoints')}
+            availableEndpoints={t('pages:index.availableEndpoints')}
+            relation={t('pages:index.relation')}
+            quantity={t('pages:index.quantity')}
+            endpoints={endpoints}
+          />
 
           <Title className={classNames({ contentTitle: true })}>{t('pages:index.introMenu.examples')}</Title>
 
@@ -178,8 +129,7 @@ const Home: NextPage<HomeProps> = ({ postsCount, todosCount, usersCount, url }) 
             </TryButtonWrapper>
           </Content>
 
-        </IntroContent>
-
+        </ContentContainer>
       </ContentWrapper>
     </Default>
   );
@@ -191,21 +141,20 @@ export const getStaticProps: GetStaticProps = async ({
   const isProd = process.env.NODE_ENV === 'production';
   const url = isProd ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL;
 
-  const postRes = await fetch(`${url}/post?count=true`);
-  const postsCount = await postRes.json();
+  const availableEndpoints = ['post', 'user', 'todo'];
 
-  const usersRes = await fetch(`${url}/user?count=true`);
-  const usersCount = await usersRes.json();
-
-  const todosRes = await fetch(`${url}/todo?count=true`);
-  const todosCount = await todosRes.json();
+  const endpoints = await Promise.all(
+    availableEndpoints.map(async (item) => {
+      const res = await fetch(`${url}/${item}?count=true`);
+      const data = await res.json();
+      return { count: data.count, endpoint: item };
+    })
+  );
 
   return {
     props: {
       ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
-      postsCount: postsCount.count,
-      usersCount: usersCount.count,
-      todosCount: todosCount.count,
+      endpoints,
       url
     }
   };

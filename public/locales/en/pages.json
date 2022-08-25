@@ -1,7 +1,4 @@
 {
-  "common": {
-    "and": "and"
-  },
   "index": {
     "title": "Fake JSON REST API data distribution",
     "startButton": "Let's jump into",
@@ -32,10 +29,8 @@
   "about": {
     "title": "About project",
     "contact": "Contact me",
-    "description": "is absolutely open-source and free project, that had been created as learn project to learn 3 frameworks - ",
-    "descriptionAws": " and all AWS deployment staff.",
-    "more": "More about every part of project - front-end and back-end - you can find on my ",
-    "pages": " pages.",
-    "contactTitle": "In case of any questions about project(s) always feel free to contact me at "
+    "description": "is absolutely open-source and free project, that had been created as learn project to learn 3 frameworks - React + Next.js and Nest.js and all AWS deployment staff.",
+    "more": "More about every part of project - front-end and back-end - you can find on my GitHub pages",
+    "contactTitle": "In case of any questions about project(s) (or even just if you want to chat) always feel free to contact me at - "
   }
 }

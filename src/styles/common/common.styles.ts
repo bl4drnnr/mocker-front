@@ -93,18 +93,6 @@ export const Title = styled.h1`
   }
 `;
 
-export const CommonTitle = styled.h1`
-  font-size: 52px;
-  margin-bottom: 35px;
-  margin-top: 35px;
-
-  color: ${(props) => props.theme.colors.text};
-
-  @media screen and (max-width: 1000px) {
-    font-size: 38px;
-  }
-`;
-
 export const Text = styled.p`
   padding-bottom: 10px;
   font-size: 18px;
@@ -114,7 +102,7 @@ export const Text = styled.p`
 
   &.about {
     text-indent: 50px;
-    font-size: 22px;
+    font-size: 20px;
     @media screen and (max-width: 1000px) {
       text-indent: 20px;
       font-size: 16px;
