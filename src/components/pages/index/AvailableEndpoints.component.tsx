@@ -7,7 +7,7 @@ import { Text, Title } from '@styles/common/common.styles';
 import { Content } from '@styles/pages/index.styles';
 
 interface AvailableEndpointsProps {
-  availableEndpointsIntro: string
+  title: string
   availableEndpoints: string
   relation: string
   quantity: string
@@ -15,7 +15,7 @@ interface AvailableEndpointsProps {
 }
 
 const AvailableEndpoints = ({
-  availableEndpointsIntro,
+  title,
   availableEndpoints,
   relation,
   quantity,
@@ -24,7 +24,7 @@ const AvailableEndpoints = ({
   return (
     <>
       <Title className={classNames({ contentTitle: true })}>
-        {availableEndpointsIntro}
+        {title}
       </Title>
 
       <Content>

@@ -22,8 +22,7 @@
       "specificRecord1": "If you want to get only one specific record, just specify ",
       "specificRecord2": " of the record for resource.",
       "pagination1": "Also, pagination with total quantity (",
-      "pagination2": " param - optional) of resource records is available with ",
-      "pagination3": "Also, pagination with total quantity ("
+      "pagination2": " param - optional) of resource records is available with "
     }
   },
   "about": {
