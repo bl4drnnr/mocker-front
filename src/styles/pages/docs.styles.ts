@@ -3,10 +3,17 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  
   padding-top: 160px;
   padding-left: 300px;
+  padding-right: 160px;
+  
   overflow: scroll;
   background: ${(props) => props.theme.colors.primary};
+
+  @media screen and (max-width: 1000px) {
+    padding: 80px 15px;
+  }
 `;
 
 export const Container = styled.div`
@@ -17,21 +24,30 @@ export const Container = styled.div`
 export const ContentSidebar = styled.div`
   width: 300px;
   height: 100%;
+  
   position: fixed;
   margin-top: 160px;
+  
   text-align: center;
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
 `;
 
 export const SidebarLink = styled.p`
   font-size: 20px;
   font-weight: 100;
+  
   width: 200px;
+  height: 50px;
+
   margin: 0 auto;
+  
   color: ${(props) => props.theme.colors.text};
+  
   position: relative;
   display: flex;
   align-items: center;
-  height: 50px;
   cursor: pointer;
   
   &::after {
