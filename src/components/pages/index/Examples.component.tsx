@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-import CodeBlock from '@components/pages/index/CodeBlock.component';
+import CodeBlock from '@components/pages/common/CodeBlock.component';
 import Button from '@components/UI/Button/Button';
 import { CodeSpan, Text, Title } from '@styles/common/common.styles';
 import { Content, TryButtonWrapper } from '@styles/pages/index.styles';

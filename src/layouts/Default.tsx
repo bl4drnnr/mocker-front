@@ -2,9 +2,9 @@ import React from 'react';
 
 import styled, { ThemeProvider } from 'styled-components';
 
-import Footer from '@components/Footer/Footer';
-import Header from '@components/Header/Header';
-import { HeaderProps } from '@components/Header/Header.interface';
+import Footer from '@components/layout/Footer/Footer';
+import Header from '@components/layout/Header/Header';
+import { HeaderProps } from '@components/layout/Header/Header.interface';
 import useDarkMode from '@hooks/useDarkMode.hook';
 import darkTheme from '@styles/themes/Dark.theme';
 import lightTheme from '@styles/themes/Light.theme';

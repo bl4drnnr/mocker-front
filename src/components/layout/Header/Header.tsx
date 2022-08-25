@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useRecoilState } from 'recoil';
 
-import { HeaderProps } from '@components/Header/Header.interface';
-import { Buttons, Container, HeaderLink, Logo } from '@components/Header/Header.styles';
+import { HeaderProps } from '@components/layout/Header/Header.interface';
+import { Buttons, Container, HeaderLink, Logo } from '@components/layout/Header/Header.styles';
 import ThemeToggler from '@components/UI/ThemeToggler/ThemeToggler';
 import { theme } from '@store/global/global.state';
 

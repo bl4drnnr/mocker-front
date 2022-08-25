@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useRouter } from 'next/router';
 
-import { Container, FooterLinks, InnerContainer, FooterLink } from '@components/Footer/Footer.styles';
+import { Container, FooterLinks, InnerContainer, FooterLink } from '@components/layout/Footer/Footer.styles';
 
 
 const Footer = () => {
