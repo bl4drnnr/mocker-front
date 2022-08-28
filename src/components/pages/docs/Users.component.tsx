@@ -8,7 +8,7 @@ interface UsersTodos {
   title: string
   url: string
   description: string
-  quantityOfRecords: number
+  quantityOfRecords: number | string
 }
 
 const Users = React.forwardRef(({
@@ -27,7 +27,7 @@ const Users = React.forwardRef(({
       method={'GET'}
       endpoint={`${url}/user/list`}
       requestUrl={`${url}/user/list`}
-      optionalParams={'?dates=true - allows to get records with createdAt and updatedAt fields.'}
+      optionalParams={'?dates=false - allows to get records without createdAt and updatedAt fields.'}
       description={'Resource allows to get list of all users.'}
       quantityOfRecords={quantityOfRecords}
       responseType={'Array<{ id: number, firstName: string, lastName: string, createdAt?: Date, updatedAt?: Date }>'}
@@ -48,6 +48,20 @@ const Users = React.forwardRef(({
       responseType={'{ id: number, firstName: string, lastName: string, createdAt: Date, updatedAt: Date }'}
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user/1\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/user?skip={skip}&take={take}&count={count}`}
+      requestUrl={`${url}/user?skip=3&take=2&count=true`}
+      description={'Resource allows to get list of users with pagination.'}
+      optionalParams={''}
+      quantityOfRecords={'-'}
+      responseType={''}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/post?skip=3&take=2\')',
         '.then(response => response.json())',
         '.then(json => console.log(json))'
       ]}

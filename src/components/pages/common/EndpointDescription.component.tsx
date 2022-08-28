@@ -9,7 +9,7 @@ interface EndpointDescriptionProps {
   requestUrl: string
   description: string
   optionalParams: string
-  quantityOfRecords: number
+  quantityOfRecords: number | string
   responseType: string
   codeLines: string[]
 }
