@@ -86,6 +86,7 @@ const Docs = ({ url, endpoints }: DocsProps) => {
           description={t('pages:docs.users.description')}
           entity={t('pages:docs.users.entity')}
           url={url}
+          relations={t('pages:docs.users.relations')}
         />
         <Posts
           postRef={postsRef}

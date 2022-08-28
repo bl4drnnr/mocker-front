@@ -11,6 +11,7 @@ interface UsersTodos {
   description: string
   entity: string
   quantityOfRecords: number | string
+  relations: string
 }
 
 const Users = React.forwardRef(({
@@ -19,7 +20,8 @@ const Users = React.forwardRef(({
   url,
   description,
   entity,
-  quantityOfRecords
+  quantityOfRecords,
+  relations
 }: UsersTodos, ref) => (
   <>
     <Title ref={usersRef}>Users</Title>
@@ -93,6 +95,38 @@ const Users = React.forwardRef(({
       responseType={<CodeSpanDocs>Array&#60;User&#62; | &#123;rows: Array&#60;User&#62;, count: number&#125;</CodeSpanDocs>}
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user?skip=3&take=2\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+
+    <Text>{relations}</Text>
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/todo/user/:userId`}
+      requestUrl={`${url}/todo/user/1`}
+      description={'By providing user id as a parameter for endpoint you\'ll be able to get data related only to this user'}
+      params={'None.'}
+      quantityOfRecords={'-'}
+      responseType={<CodeSpanDocs>Array&#60;Todo&#62;</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/todo/user/1\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/post/user/:userId`}
+      requestUrl={`${url}/post/user/6`}
+      description={'By providing user id as a parameter for endpoint you\'ll be able to get data related only to this user'}
+      params={'None.'}
+      quantityOfRecords={'-'}
+      responseType={<CodeSpanDocs>Array&#60;Post&#62;</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/post/user/6\')',
         '.then(response => response.json())',
         '.then(json => console.log(json))'
       ]}
