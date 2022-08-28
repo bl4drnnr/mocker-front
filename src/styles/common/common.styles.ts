@@ -68,9 +68,15 @@ export const CodeLine = styled.span`
 
 export const CodeSpan = styled.span`
   padding: 0 5px;
+  margin: 0 5px;
   border-radius: 5px;
   background: ${(props) => props.theme.colors.primary};
   font-family: 'Roboto Mono', sans-serif;
+
+  &.secondary {
+    background: ${(props) => props.theme.colors.hover};
+    font-size: 16px;
+  }
 `;
 
 export const Title = styled.h1`

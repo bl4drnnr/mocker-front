@@ -1,7 +1,9 @@
 import React from 'react';
 
+import classNames from 'classnames';
+
 import EndpointDescription from '@components/pages/common/EndpointDescription.component';
-import { Text, Title } from '@styles/common/common.styles';
+import { Text, Title, CodeSpan } from '@styles/common/common.styles';
 
 interface UsersTodos {
   usersRef: React.RefObject<HTMLParagraphElement>
@@ -25,12 +27,26 @@ const Users = React.forwardRef(({
 
     <EndpointDescription
       method={'GET'}
-      endpoint={`${url}/user/list`}
+      endpoint={`${url}/user/list?dates={dates}`}
       requestUrl={`${url}/user/list`}
-      optionalParams={'?dates=false - allows to get records without createdAt and updatedAt fields.'}
+      params={
+        <span>
+          <CodeSpan className={classNames({ secondary: true })}
+          >dates</CodeSpan>- optional parameter that allows to get records without<CodeSpan className={classNames({ secondary: true })}
+          >createdAt</CodeSpan>and<CodeSpan className={classNames({ secondary: true })}
+          >updatedAt</CodeSpan> fields.
+        </span>
+      }
+      paramsTypes={
+        <span><CodeSpan className={classNames({ secondary: true })}>dates?: boolean</CodeSpan></span>
+      }
       description={'Resource allows to get list of all users.'}
       quantityOfRecords={quantityOfRecords}
-      responseType={'Array<{ id: number, firstName: string, lastName: string, createdAt?: Date, updatedAt?: Date }>'}
+      responseType={
+        <CodeSpan className={classNames({ secondary: true })}
+          >Array&#60;&#123;id: number, firstName: string, lastName: string, createdAt?: Date, updatedAt?: Date&#125;&#62;
+        </CodeSpan>
+      }
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user/list\')',
         '.then(response => response.json())',
@@ -43,9 +59,13 @@ const Users = React.forwardRef(({
       endpoint={`${url}/user/:id`}
       requestUrl={`${url}/user/1`}
       description={'Resource allows to get one record - user - by id.'}
-      optionalParams={'None.'}
+      params={'None.'}
       quantityOfRecords={quantityOfRecords}
-      responseType={'{ id: number, firstName: string, lastName: string, createdAt: Date, updatedAt: Date }'}
+      responseType={
+        <CodeSpan className={classNames({ secondary: true })}
+          >&#123;id: number, firstName: string, lastName: string, createdAt: Date, updatedAt: Date&#125;
+        </CodeSpan>
+      }
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user/1\')',
         '.then(response => response.json())',
@@ -57,7 +77,21 @@ const Users = React.forwardRef(({
       endpoint={`${url}/user?skip={skip}&take={take}&count={count}`}
       requestUrl={`${url}/user?skip=3&take=2&count=true`}
       description={'Resource allows to get list of users with pagination.'}
-      optionalParams={''}
+      params={
+        <span>
+          Params of<CodeSpan className={classNames({ secondary: true })}>skip
+          </CodeSpan>and<CodeSpan className={classNames({ secondary: true })}>take
+          </CodeSpan>must be provided together or not provided at all. Param<CodeSpan className={classNames({ secondary: true })}>count
+          </CodeSpan>is optional.
+        </span>
+      }
+      paramsTypes={
+        <span>
+          <CodeSpan className={classNames({ secondary: true })}>skip?: number</CodeSpan>
+          <CodeSpan className={classNames({ secondary: true })}>take?: number</CodeSpan>
+          <CodeSpan className={classNames({ secondary: true })}>count?: boolean</CodeSpan>
+        </span>
+      }
       quantityOfRecords={'-'}
       responseType={''}
       codeLines={[

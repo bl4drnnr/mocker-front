@@ -8,9 +8,10 @@ interface EndpointDescriptionProps {
   endpoint: string
   requestUrl: string
   description: string
-  optionalParams: string
+  params: React.ReactElement | string
+  paramsTypes?: React.ReactElement | string
   quantityOfRecords: number | string
-  responseType: string
+  responseType: React.ReactElement | string
   codeLines: string[]
 }
 
@@ -18,8 +19,9 @@ const EndpointDescription = ({
   endpoint,
   requestUrl,
   description,
-  optionalParams,
+  params,
   quantityOfRecords,
+  paramsTypes,
   responseType,
   method,
   codeLines
@@ -38,7 +40,10 @@ const EndpointDescription = ({
       </Text>
       <Text><strong>Description: </strong>{description}</Text>
       <Text><strong>Quantity of all records: </strong>{quantityOfRecords}</Text>
-      <Text><strong>Optional query parameters: </strong>{optionalParams}</Text>
+      <Text><strong>Query parameters: </strong>{params}</Text>
+      {paramsTypes ? (
+        <Text><strong>Query parameters types: </strong>{paramsTypes}</Text>
+      ) : null}
       <Text><strong>Response type: </strong> {responseType}</Text>
       <TryIt codeLines={codeLines} endpoint={requestUrl}/>
     </div>
