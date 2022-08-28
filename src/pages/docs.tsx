@@ -92,9 +92,17 @@ const Docs = ({ url, endpoints }: DocsProps) => {
           quantityOfRecords={endpoints[1].count}
           title={''}
           description={''}
+          entity={''}
           url={url}
         />
-        <Todos todoRef={todosRef} />
+        <Todos
+          todoRef={todosRef}
+          quantityOfRecords={endpoints[2].count}
+          title={''}
+          description={''}
+          entity={''}
+          url={url}
+        />
       </Wrapper>
     </Default>
   );

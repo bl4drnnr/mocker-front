@@ -1,18 +1,37 @@
 import React from 'react';
 
-import { Text, Title } from '@styles/common/common.styles';
+import JsonData from '@components/pages/common/JsonData.component';
+import { CodeSpanDocs, Text, Title } from '@styles/common/common.styles';
 
 interface PostsProps {
   postRef: React.RefObject<HTMLParagraphElement>
-  quantityOfRecords: number
   title: string
-  description: string
   url: string
+  description: string
+  entity: string
+  quantityOfRecords: number | string
 }
 
-const Posts = React.forwardRef(({ postRef }: PostsProps, ref) => (
+const Posts = React.forwardRef(({
+  postRef,
+  title,
+  url,
+  description,
+  entity,
+  quantityOfRecords
+}: PostsProps, ref) => (
   <>
     <Title ref={postRef}>Posts</Title>
+    <Text><strong>Posts </strong>{title}</Text>
+    <Text>{description}</Text>
+    <Text><CodeSpanDocs>Post</CodeSpanDocs>{entity}</Text>
+    <JsonData data={'' +
+      '    {"id": "number",\n' +
+      '    "firstName": "string",\n' +
+      '    "lastName": "string",\n' +
+      '    "createdAt": "Date",\n' +
+      '    "updatedAt": "Date"}'
+    }/>
   </>
 ));
 
