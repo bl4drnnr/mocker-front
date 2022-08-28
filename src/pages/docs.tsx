@@ -21,9 +21,9 @@ const Docs = ({ url }: DocsProps) => {
 
   const [sections, setSections] = React.useState([
     { value: 'Introduction', active: false },
+    { value: 'Users', active: false },
     { value: 'Posts', active: false },
     { value: 'Todos', active: false },
-    { value: 'Users', active: false },
   ]);
   const introRef = React.useRef<HTMLParagraphElement>(null);
   const postsRef = React.useRef<HTMLParagraphElement>(null);
@@ -74,11 +74,18 @@ const Docs = ({ url }: DocsProps) => {
           title={t('pages:docs.introduction.title')}
           description={t('pages:docs.introduction.description')}
           endpointDefault={t('pages:docs.introduction.endpointDefault')}
+          docsReference={t('pages:docs.introduction.docsReference')}
+          generics={t('pages:docs.introduction.generics')}
+          url={url}
+        />
+        <Users
+          usersRef={usersRef}
+          title={t('pages:docs.users.title')}
+          description={t('pages:docs.users.description')}
           url={url}
         />
         <Posts postRef={postsRef} />
         <Todos todoRef={todosRef} />
-        <Users usersRef={usersRef} />
       </Wrapper>
     </Default>
   );

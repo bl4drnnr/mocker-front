@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TryIt from '@components/pages/common/TryIt.component';
-import { Text, Title } from '@styles/common/common.styles';
+import { Text, Title, Link } from '@styles/common/common.styles';
 
 interface IntroductionProps {
   introRef: React.RefObject<HTMLParagraphElement>
@@ -9,6 +9,8 @@ interface IntroductionProps {
   title: string
   description: string
   endpointDefault: string
+  docsReference: string
+  generics: string
 }
 
 const Introduction = React.forwardRef(({
@@ -16,7 +18,9 @@ const Introduction = React.forwardRef(({
  title,
  description,
  endpointDefault,
- url
+ url,
+ docsReference,
+ generics
 }: IntroductionProps, ref) => (
   <>
     <Title ref={introRef}>Introduction</Title>
@@ -27,11 +31,13 @@ const Introduction = React.forwardRef(({
     <TryIt
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/todo/list\')',
-        '.then(response ={\'>\'} response.json())',
-        '.then(json ={\'>\'} console.log(json))'
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
       ]}
       endpoint={`${url}/todo/list`}
     />
+    <Text>{docsReference} <Link>https://data.mockerdistibutor.org/api/docs</Link></Text>
+    <Text>{generics}</Text>
   </>
 ));
 

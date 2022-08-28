@@ -1,5 +1,6 @@
 {
   "and": "and",
   "params": "params",
-  "example": "For example:"
+  "example": "For example:",
+  "responseType": "Type of response"
 }
