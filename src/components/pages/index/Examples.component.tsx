@@ -72,7 +72,7 @@ const Examples = ({
       </Content>
 
       <Content>
-        <Text>{pagination1}<CodeSpan>count</CodeSpan>{pagination2}<CodeSpan>take</CodeSpan> {and} <CodeSpan>skip</CodeSpan> {params}.</Text>
+        <Text>{pagination1}<CodeSpan>count</CodeSpan>{pagination2}<CodeSpan>take</CodeSpan>{and}<CodeSpan>skip</CodeSpan>{params}.</Text>
         <CodeBlock codeLines={[
           'fetch(\'https://data.mockerdistibutor.org/post?skip=3&take=2\')',
           '.then(response ={\'>\'} response.json())',

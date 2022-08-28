@@ -17,12 +17,12 @@
     },
     "examplesText": "Here is a couple of example on how you can use endpoints in your own API and for what kind of response you can wait.",
     "examples": {
-      "allRecords1": "All records for one resource are available under ",
-      "allRecords2": " resource route.",
-      "specificRecord1": "If you want to get only one specific record, just specify ",
-      "specificRecord2": " of the record for resource.",
+      "allRecords1": "All records for one resource are available under",
+      "allRecords2": "resource route.",
+      "specificRecord1": "If you want to get only one specific record, just specify",
+      "specificRecord2": "of the record for resource.",
       "pagination1": "Also, pagination with total quantity (",
-      "pagination2": " param - optional) of resource records is available with "
+      "pagination2": "param - optional) of resource records is available with"
     }
   },
   "about": {
@@ -37,11 +37,11 @@
       "title": "is absolutely free, open source mock JSON data distributor for REST API's that allows developers, not having back-end, fill pages with fake data.",
       "description": "At your disposal, there are a couple of endpoints (resources) which are used to get data according to documentation below. Please, pay attention, that endpoints are related between each other in the way of improvised SQL database. And using special query, you can do JOINs to get data related to 2 or more resources. More about it will be displayed below, in sections in which this functionality is available.",
       "endpointDefault": "By default, every resource has its own default routes that allow you, for example, to get one post by id or list them all (and count).",
-      "docsReference": "Also Swagger documentation is available under ",
+      "docsReference": "Also Swagger documentation is available under",
       "generics": "All response types will be written and described on TypeScript manner."
     },
     "users": {
-      "title": " is probably most important endpoint that is being related to all other resources - Post and Todo - by relationship. Basically, it means that every user has at least one post and one todo, so, you can JOIN and get data - posts or todos - related to only one user.",
+      "title": "is probably most important endpoint that is being related to all other resources - Post and Todo - by relationship. Basically, it means that every user has at least one post and one todo, so, you can JOIN and get data - posts or todos - related to only one user.",
       "description": "Below will be listed all possible endpoints, query parameters, quantities of records, responses and their types."
     }
   }
