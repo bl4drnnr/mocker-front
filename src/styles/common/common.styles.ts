@@ -43,6 +43,10 @@ export const Code = styled.div`
   flex-direction: column;
 
   background: ${(props) => props.theme.colors.primary};
+  
+  &.secondary {
+    background: ${(props) => props.theme.colors.secondary};
+  }
 
   @media screen and (max-width: 1000px) {
     width: 100%;
@@ -52,6 +56,10 @@ export const Code = styled.div`
 export const CodeLine = styled.span`
   color: ${(props) => props.theme.colors.text};
   font-family: 'Roboto Mono', sans-serif;
+
+  &.secondary {
+    background: ${(props) => props.theme.colors.secondary};
+  }
   
   @media screen and (max-width: 1000px) {
     overflow-wrap: break-word;
@@ -127,5 +135,14 @@ export const Container = styled.div`
  
   @media screen and (max-width: 1000px) {
     width: 90%;
+  }
+`;
+
+export const JsonBlock = styled.pre`
+  color: ${(props) => props.theme.colors.text};
+  font-family: 'Roboto Mono', sans-serif;
+
+  @media screen and (max-width: 1000px) {
+    overflow-wrap: break-word;
   }
 `;

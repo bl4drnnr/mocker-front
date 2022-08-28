@@ -31,5 +31,12 @@
     "description": "is absolutely open-source and free project, that had been created as learn project to learn 3 frameworks - React + Next.js and Nest.js and all AWS deployment staff.",
     "more": "More about every part of project - front-end and back-end - you can find on my GitHub pages",
     "contactTitle": "In case of any questions about project(s) (or even just if you want to chat) always feel free to contact me at - "
+  },
+  "docs": {
+    "introduction": {
+      "title": "is absolutely free, open source mock JSON data distributor for REST API's that allows developers, not having back-end, fill pages with fake data.",
+      "description": "At your disposal, there are a couple of endpoints (resources) which are used to get data according to documentation below. Please, pay attention, that endpoints are related between each other in the way of improvised SQL database. And using special query, you can do 'JOIN's' to get data related to 2 or more resources. More about it will be displayed below, in sections in which this functionality is available.",
+      "endpointDefault": "By default, every resource has its own default routes that allow you, for example, to get one post by id or list them all (and count)."
+    }
   }
 }

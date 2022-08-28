@@ -12,7 +12,11 @@ import Users from '@components/pages/docs/Users.component';
 import Default from '@layouts/Default';
 import { Wrapper } from '@styles/pages/docs.styles';
 
-const Docs = () => {
+interface DocsProps {
+  url: string
+}
+
+const Docs = ({ url }: DocsProps) => {
   const { t } = useTranslation();
 
   const [sections, setSections] = React.useState([
@@ -65,7 +69,13 @@ const Docs = () => {
         executeScroll={executeScroll}
       />
       <Wrapper>
-        <Introduction introRef={introRef}/>
+        <Introduction
+          introRef={introRef}
+          title={t('pages:docs.introduction.title')}
+          description={t('pages:docs.introduction.description')}
+          endpointDefault={t('pages:docs.introduction.endpointDefault')}
+          url={url}
+        />
         <Posts postRef={postsRef} />
         <Todos todoRef={todosRef} />
         <Users usersRef={usersRef} />
@@ -79,6 +89,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => ({
   props: {
     ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
+    url: process.env.NODE_ENV === 'production' ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL
   },
 });
 
