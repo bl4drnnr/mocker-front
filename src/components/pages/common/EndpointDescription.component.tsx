@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styled from 'styled-components';
+
 import TryIt from '@components/pages/common/TryIt.component';
 import { Text, Link } from '@styles/common/common.styles';
 
@@ -14,6 +16,10 @@ interface EndpointDescriptionProps {
   responseType: React.ReactElement | string
   codeLines: string[]
 }
+
+const EndpointDescriptionWrapper = styled.div`
+  margin: 50px 0;
+`;
 
 const EndpointDescription = ({
   endpoint,
@@ -32,7 +38,7 @@ const EndpointDescription = ({
   };
 
   return (
-    <div>
+    <EndpointDescriptionWrapper>
       <Text><strong>Method: </strong>{method}</Text>
       <Text onClick={() => handleEndpoint()}>
         <strong>Endpoint: </strong>
@@ -46,7 +52,7 @@ const EndpointDescription = ({
       ) : null}
       <Text><strong>Response type: </strong> {responseType}</Text>
       <TryIt codeLines={codeLines} endpoint={requestUrl}/>
-    </div>
+    </EndpointDescriptionWrapper>
   );
 };
 

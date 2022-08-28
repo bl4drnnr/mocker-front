@@ -42,7 +42,8 @@
     },
     "users": {
       "title": "is probably most important endpoint that is being related to all other resources - Post and Todo - by relationship. Basically, it means that every user has at least one post and one todo, so, you can JOIN and get data - posts or todos - related to only one user.",
-      "description": "Below will be listed all possible endpoints, query parameters, quantities of records, responses and their types."
+      "description": "Below will be listed all possible endpoints, query parameters, quantities of records, responses and their types.",
+      "entity": "as entity has its own required fields and optional fields, and you have opportunity to manage it and get fields you want to get using query parameters. And before we start, let's describe entity."
     }
   }
 }

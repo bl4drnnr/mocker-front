@@ -1,15 +1,15 @@
 import React from 'react';
 
-import classNames from 'classnames';
-
 import EndpointDescription from '@components/pages/common/EndpointDescription.component';
-import { Text, Title, CodeSpan } from '@styles/common/common.styles';
+import JsonData from '@components/pages/common/JsonData.component';
+import { Text, Title, CodeSpanDocs } from '@styles/common/common.styles';
 
 interface UsersTodos {
   usersRef: React.RefObject<HTMLParagraphElement>
   title: string
   url: string
   description: string
+  entity: string
   quantityOfRecords: number | string
 }
 
@@ -18,12 +18,21 @@ const Users = React.forwardRef(({
   title,
   url,
   description,
+  entity,
   quantityOfRecords
 }: UsersTodos, ref) => (
   <>
     <Title ref={usersRef}>Users</Title>
-    <Text><strong>Users</strong>{title}</Text>
+    <Text><strong>Users </strong>{title}</Text>
     <Text>{description}</Text>
+    <Text><CodeSpanDocs>User</CodeSpanDocs>{entity}</Text>
+    <JsonData data={'' +
+      '    {"id": "number",\n' +
+      '    "firstName": "string",\n' +
+      '    "lastName": "string",\n' +
+      '    "createdAt": "Date",\n' +
+      '    "updatedAt": "Date"}'
+    }/>
 
     <EndpointDescription
       method={'GET'}
@@ -31,22 +40,14 @@ const Users = React.forwardRef(({
       requestUrl={`${url}/user/list`}
       params={
         <span>
-          <CodeSpan className={classNames({ secondary: true })}
-          >dates</CodeSpan>- optional parameter that allows to get records without<CodeSpan className={classNames({ secondary: true })}
-          >createdAt</CodeSpan>and<CodeSpan className={classNames({ secondary: true })}
-          >updatedAt</CodeSpan> fields.
+          <CodeSpanDocs>dates</CodeSpanDocs>- optional parameter that allows to get records without
+          <CodeSpanDocs>createdAt</CodeSpanDocs>and<CodeSpanDocs>updatedAt</CodeSpanDocs>fields.
         </span>
       }
-      paramsTypes={
-        <span><CodeSpan className={classNames({ secondary: true })}>dates?: boolean</CodeSpan></span>
-      }
+      paramsTypes={<span><CodeSpanDocs>dates?: boolean</CodeSpanDocs></span>}
       description={'Resource allows to get list of all users.'}
       quantityOfRecords={quantityOfRecords}
-      responseType={
-        <CodeSpan className={classNames({ secondary: true })}
-          >Array&#60;&#123;id: number, firstName: string, lastName: string, createdAt?: Date, updatedAt?: Date&#125;&#62;
-        </CodeSpan>
-      }
+      responseType={<CodeSpanDocs>Array&#60;User&#62;</CodeSpanDocs>}
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user/list\')',
         '.then(response => response.json())',
@@ -62,9 +63,7 @@ const Users = React.forwardRef(({
       params={'None.'}
       quantityOfRecords={quantityOfRecords}
       responseType={
-        <CodeSpan className={classNames({ secondary: true })}
-          >&#123;id: number, firstName: string, lastName: string, createdAt: Date, updatedAt: Date&#125;
-        </CodeSpan>
+        <CodeSpanDocs>User</CodeSpanDocs>
       }
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user/1\')',
@@ -79,21 +78,20 @@ const Users = React.forwardRef(({
       description={'Resource allows to get list of users with pagination.'}
       params={
         <span>
-          Params of<CodeSpan className={classNames({ secondary: true })}>skip
-          </CodeSpan>and<CodeSpan className={classNames({ secondary: true })}>take
-          </CodeSpan>must be provided together or not provided at all. Param<CodeSpan className={classNames({ secondary: true })}>count
-          </CodeSpan>is optional.
+          Params of<CodeSpanDocs>skip</CodeSpanDocs>and<CodeSpanDocs>take
+          </CodeSpanDocs>must be provided together or not provided at all. Param<CodeSpanDocs>count
+          </CodeSpanDocs>is optional.
         </span>
       }
       paramsTypes={
         <span>
-          <CodeSpan className={classNames({ secondary: true })}>skip?: number</CodeSpan>
-          <CodeSpan className={classNames({ secondary: true })}>take?: number</CodeSpan>
-          <CodeSpan className={classNames({ secondary: true })}>count?: boolean</CodeSpan>
+          <CodeSpanDocs>skip?: number</CodeSpanDocs>
+          <CodeSpanDocs>take?: number</CodeSpanDocs>
+          <CodeSpanDocs>count?: boolean</CodeSpanDocs>
         </span>
       }
       quantityOfRecords={'-'}
-      responseType={''}
+      responseType={<CodeSpanDocs>Array&#60;User&#62; | &#123;rows: Array&#60;User&#62;, count: number&#125;</CodeSpanDocs>}
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/post?skip=3&take=2\')',
         '.then(response => response.json())',

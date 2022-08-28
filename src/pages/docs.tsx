@@ -84,9 +84,16 @@ const Docs = ({ url, endpoints }: DocsProps) => {
           quantityOfRecords={endpoints[0].count}
           title={t('pages:docs.users.title')}
           description={t('pages:docs.users.description')}
+          entity={t('pages:docs.users.entity')}
           url={url}
         />
-        <Posts postRef={postsRef} />
+        <Posts
+          postRef={postsRef}
+          quantityOfRecords={endpoints[1].count}
+          title={''}
+          description={''}
+          url={url}
+        />
         <Todos todoRef={todosRef} />
       </Wrapper>
     </Default>

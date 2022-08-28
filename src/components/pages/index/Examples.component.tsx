@@ -45,8 +45,8 @@ const Examples = ({
         <Text>{allRecords1}<CodeSpan>/list</CodeSpan>{allRecords2}</Text>
         <CodeBlock codeLines={[
           'fetch(\'https://data.mockerdistibutor.org/todo/list\')',
-          '.then(response ={\'>\'} response.json())',
-          '.then(json ={\'>\'} console.log(json))'
+          '.then(response => response.json())',
+          '.then(json => console.log(json))'
         ]} />
         <TryButtonWrapper>
           <Button
@@ -60,8 +60,8 @@ const Examples = ({
         <Text>{specificRecord1}<CodeSpan>id</CodeSpan>{specificRecord2}</Text>
         <CodeBlock codeLines={[
           'fetch(\'https://data.mockerdistibutor.org/post/1\')',
-          '.then(response ={\'>\'} response.json())',
-          '.then(json ={\'>\'} console.log(json))'
+          '.then(response => response.json())',
+          '.then(json => console.log(json))'
         ]} />
         <TryButtonWrapper>
           <Button
@@ -75,8 +75,8 @@ const Examples = ({
         <Text>{pagination1}<CodeSpan>count</CodeSpan>{pagination2}<CodeSpan>take</CodeSpan>{and}<CodeSpan>skip</CodeSpan>{params}.</Text>
         <CodeBlock codeLines={[
           'fetch(\'https://data.mockerdistibutor.org/post?skip=3&take=2\')',
-          '.then(response ={\'>\'} response.json())',
-          '.then(json ={\'>\'} console.log(json))'
+          '.then(response => response.json())',
+          '.then(json => console.log(json))'
         ]} />
         <TryButtonWrapper>
           <Button

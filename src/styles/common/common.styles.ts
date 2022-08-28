@@ -72,11 +72,15 @@ export const CodeSpan = styled.span`
   border-radius: 5px;
   background: ${(props) => props.theme.colors.primary};
   font-family: 'Roboto Mono', sans-serif;
+`;
 
-  &.secondary {
-    background: ${(props) => props.theme.colors.hover};
-    font-size: 16px;
-  }
+export const CodeSpanDocs = styled.span`
+  padding: 0 5px;
+  margin: 0 5px;
+  border-radius: 5px;
+  background: ${(props) => props.theme.colors.hover};
+  font-size: 16px;
+  font-family: 'Roboto Mono', sans-serif;
 `;
 
 export const Title = styled.h1`
