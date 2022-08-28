@@ -25,14 +25,14 @@ const TryItButtonWrapper = styled.div`
 `;
 
 const TryIt = ({ codeLines, endpoint }: TryItProps) => {
-  const [data, setData] = React.useState<Array<any>>();
+  const [data, setData] = React.useState<Array<any> | object | null>(null);
 
   const fetchData = async (option: string) => {
     if (option === 'Try it now') {
       const result = await FetchService.get(endpoint);
       setData(result);
     } else {
-      setData([]);
+      setData(null);
     }
   };
 
@@ -42,12 +42,12 @@ const TryIt = ({ codeLines, endpoint }: TryItProps) => {
 
       <TryItButtonWrapper>
         <Button
-          text={data?.length ? 'Hide' : 'Try it now'}
-          onClick={() => fetchData(data?.length ? 'Hide' : 'Try it now')}
+          text={data ? 'Hide' : 'Try it now'}
+          onClick={() => fetchData(data ? 'Hide' : 'Try it now')}
         />
       </TryItButtonWrapper>
 
-      {data?.length ? (
+      {data ? (
         <JsonBlock data={JSON.stringify(data)} />
       ) : null}
     </TryItWrapper>

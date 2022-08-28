@@ -14,9 +14,10 @@ import { Wrapper } from '@styles/pages/docs.styles';
 
 interface DocsProps {
   url: string
+  endpoints: Array<{ endpoint: string, count: number }>
 }
 
-const Docs = ({ url }: DocsProps) => {
+const Docs = ({ url, endpoints }: DocsProps) => {
   const { t } = useTranslation();
 
   const [sections, setSections] = React.useState([
@@ -80,6 +81,7 @@ const Docs = ({ url }: DocsProps) => {
         />
         <Users
           usersRef={usersRef}
+          quantityOfRecords={endpoints[0].count}
           title={t('pages:docs.users.title')}
           description={t('pages:docs.users.description')}
           url={url}
@@ -93,11 +95,27 @@ const Docs = ({ url }: DocsProps) => {
 
 export const getStaticProps: GetStaticProps = async ({
  locale
-}) => ({
-  props: {
-    ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
-    url: process.env.NODE_ENV === 'production' ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL
-  },
-});
+}) => {
+  const isProd = process.env.NODE_ENV === 'production';
+  const url = isProd ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL;
+
+  const availableEndpoints = ['user', 'post', 'todo'];
+
+  const endpoints = await Promise.all(
+    availableEndpoints.map(async (item) => {
+      const res = await fetch(`${url}/${item}?count=true`);
+      const data = await res.json();
+      return { count: data.count, endpoint: item };
+    })
+  );
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
+      endpoints,
+      url
+    }
+  };
+};
 
 export default Docs;

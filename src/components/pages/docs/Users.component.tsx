@@ -8,13 +8,15 @@ interface UsersTodos {
   title: string
   url: string
   description: string
+  quantityOfRecords: number
 }
 
 const Users = React.forwardRef(({
   usersRef,
   title,
   url,
-  description
+  description,
+  quantityOfRecords
 }: UsersTodos, ref) => (
   <>
     <Title ref={usersRef}>Users</Title>
@@ -24,10 +26,31 @@ const Users = React.forwardRef(({
     <EndpointDescription
       method={'GET'}
       endpoint={`${url}/user/list`}
-      optionalParams={'?dates=true - allows to get records with createdAt and updatedAt fields'}
+      requestUrl={`${url}/user/list`}
+      optionalParams={'?dates=true - allows to get records with createdAt and updatedAt fields.'}
       description={'Resource allows to get list of all users.'}
-      quantityOfRecords={20}
+      quantityOfRecords={quantityOfRecords}
       responseType={'Array<{ id: number, firstName: string, lastName: string, createdAt?: Date, updatedAt?: Date }>'}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/user/list\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/user/:id`}
+      requestUrl={`${url}/user/1`}
+      description={'Resource allows to get one record - user - by id.'}
+      optionalParams={'None.'}
+      quantityOfRecords={quantityOfRecords}
+      responseType={'{ id: number, firstName: string, lastName: string, createdAt: Date, updatedAt: Date }'}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/user/1\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
     />
   </>
 ));

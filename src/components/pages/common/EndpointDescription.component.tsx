@@ -6,23 +6,27 @@ import { Text, Link } from '@styles/common/common.styles';
 interface EndpointDescriptionProps {
   method: string
   endpoint: string
+  requestUrl: string
   description: string
   optionalParams: string
   quantityOfRecords: number
   responseType: string
+  codeLines: string[]
 }
 
 const EndpointDescription = ({
   endpoint,
+  requestUrl,
   description,
   optionalParams,
   quantityOfRecords,
   responseType,
-  method
+  method,
+  codeLines
 }: EndpointDescriptionProps) => {
 
   const handleEndpoint = async () => {
-    window.open(endpoint, '_blank');
+    window.open(requestUrl, '_blank');
   };
 
   return (
@@ -36,13 +40,7 @@ const EndpointDescription = ({
       <Text><strong>Quantity of all records: </strong>{quantityOfRecords}</Text>
       <Text><strong>Optional query parameters: </strong>{optionalParams}</Text>
       <Text><strong>Response type: </strong> {responseType}</Text>
-      <TryIt codeLines={[
-        'fetch(\'https://data.mockerdistibutor.org/user/list\')',
-        '.then(response => response.json())',
-        '.then(json => console.log(json))'
-        ]}
-       endpoint={endpoint}
-      />
+      <TryIt codeLines={codeLines} endpoint={requestUrl}/>
     </div>
   );
 };
