@@ -2,6 +2,7 @@ import React from 'react';
 
 import JsonData from '@components/pages/common/JsonData.component';
 import { CodeSpanDocs, Text, Title } from '@styles/common/common.styles';
+import EndpointDescription from "@components/pages/common/EndpointDescription.component";
 
 interface TodoProps {
   todoRef: React.RefObject<HTMLParagraphElement>
@@ -27,11 +28,31 @@ const Todos = React.forwardRef(({
     <Text><CodeSpanDocs>Todo</CodeSpanDocs>{entity}</Text>
     <JsonData data={'' +
       '    {"id": "number",\n' +
-      '    "firstName": "string",\n' +
-      '    "lastName": "string",\n' +
+      '    "title": "string",\n' +
+      '    "completed": "boolean",\n' +
       '    "createdAt": "Date",\n' +
       '    "updatedAt": "Date"}'
     }/>
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/todo/list?dates={dates}`}
+      requestUrl={`${url}/todo/list`}
+      description={'Resource allows to get list of all todos'}
+      params={
+        <span>
+          <CodeSpanDocs>dates</CodeSpanDocs>- optional parameter that allows to get records without
+          <CodeSpanDocs>createdAt</CodeSpanDocs>and<CodeSpanDocs>updatedAt</CodeSpanDocs>fields.
+        </span>
+      }
+      quantityOfRecords={quantityOfRecords}
+      responseType={<CodeSpanDocs>Array&#60;Todo&#62;</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/todo/list\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
   </>
 ));
 
