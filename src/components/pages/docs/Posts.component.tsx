@@ -1,8 +1,8 @@
 import React from 'react';
 
+import EndpointDescription from '@components/pages/common/EndpointDescription.component';
 import JsonData from '@components/pages/common/JsonData.component';
 import { CodeSpanDocs, Text, Title } from '@styles/common/common.styles';
-import EndpointDescription from "@components/pages/common/EndpointDescription.component";
 
 interface PostsProps {
   postRef: React.RefObject<HTMLParagraphElement>
@@ -51,6 +51,49 @@ const Posts = React.forwardRef(({
       responseType={<CodeSpanDocs>Array&#60;Post&#62;</CodeSpanDocs>}
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/post/list\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/post/:id`}
+      requestUrl={`${url}/post/3`}
+      description={'Resource allows to get one record - post - by id.'}
+      params={'None.'}
+      quantityOfRecords={quantityOfRecords}
+      responseType={<CodeSpanDocs>Post</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/post/3\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/post?skip={skip}&take={take}&count={count}`}
+      requestUrl={`${url}/post?skip=3&take=2&count=true`}
+      description={'Resource allows to get list of posts with pagination.'}
+      params={
+        <span>
+          Params of<CodeSpanDocs>skip</CodeSpanDocs>and<CodeSpanDocs>take
+          </CodeSpanDocs>must be provided together or not provided at all. Param<CodeSpanDocs>count
+          </CodeSpanDocs>is optional.
+        </span>
+      }
+      paramsTypes={
+        <span>
+          <CodeSpanDocs>skip?: number</CodeSpanDocs>
+          <CodeSpanDocs>take?: number</CodeSpanDocs>
+          <CodeSpanDocs>count?: boolean</CodeSpanDocs>
+        </span>
+      }
+      quantityOfRecords={'-'}
+      responseType={<CodeSpanDocs>Array&#60;Post&#62; | &#123;rows: Array&#60;Post&#62;, count: number&#125;</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/post?skip=3&take=2\')',
         '.then(response => response.json())',
         '.then(json => console.log(json))'
       ]}

@@ -53,6 +53,49 @@ const Todos = React.forwardRef(({
         '.then(json => console.log(json))'
       ]}
     />
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/todo/:id`}
+      requestUrl={`${url}/todo/5`}
+      description={'Resource allows to get one record - todo - by id.'}
+      params={'None.'}
+      quantityOfRecords={quantityOfRecords}
+      responseType={<CodeSpanDocs>Todo</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/todo/1\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
+
+    <EndpointDescription
+      method={'GET'}
+      endpoint={`${url}/todo?skip={skip}&take={take}&count={count}`}
+      requestUrl={`${url}/todo?skip=3&take=2&count=true`}
+      description={'Resource allows to get list of todos with pagination.'}
+      params={
+        <span>
+          Params of<CodeSpanDocs>skip</CodeSpanDocs>and<CodeSpanDocs>take
+          </CodeSpanDocs>must be provided together or not provided at all. Param<CodeSpanDocs>count
+          </CodeSpanDocs>is optional.
+        </span>
+      }
+      paramsTypes={
+        <span>
+          <CodeSpanDocs>skip?: number</CodeSpanDocs>
+          <CodeSpanDocs>take?: number</CodeSpanDocs>
+          <CodeSpanDocs>count?: boolean</CodeSpanDocs>
+        </span>
+      }
+      quantityOfRecords={'-'}
+      responseType={<CodeSpanDocs>Array&#60;Todo&#62; | &#123;rows: Array&#60;Todo&#62;, count: number&#125;</CodeSpanDocs>}
+      codeLines={[
+        'fetch(\'https://data.mockerdistibutor.org/todo?skip=3&take=2\')',
+        '.then(response => response.json())',
+        '.then(json => console.log(json))'
+      ]}
+    />
   </>
 ));
 

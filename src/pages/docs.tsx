@@ -90,17 +90,17 @@ const Docs = ({ url, endpoints }: DocsProps) => {
         <Posts
           postRef={postsRef}
           quantityOfRecords={endpoints[1].count}
-          title={''}
-          description={''}
-          entity={''}
+          title={t('pages:docs.posts.title')}
+          description={t('pages:docs.posts.description')}
+          entity={t('pages:docs.posts.entity')}
           url={url}
         />
         <Todos
           todoRef={todosRef}
           quantityOfRecords={endpoints[2].count}
-          title={''}
-          description={''}
-          entity={''}
+          title={t('pages:docs.todos.title')}
+          description={t('pages:docs.todos.description')}
+          entity={t('pages:docs.todos.entity')}
           url={url}
         />
       </Wrapper>

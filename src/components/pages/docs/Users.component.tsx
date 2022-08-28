@@ -62,15 +62,14 @@ const Users = React.forwardRef(({
       description={'Resource allows to get one record - user - by id.'}
       params={'None.'}
       quantityOfRecords={quantityOfRecords}
-      responseType={
-        <CodeSpanDocs>User</CodeSpanDocs>
-      }
+      responseType={<CodeSpanDocs>User</CodeSpanDocs>}
       codeLines={[
         'fetch(\'https://data.mockerdistibutor.org/user/1\')',
         '.then(response => response.json())',
         '.then(json => console.log(json))'
       ]}
     />
+
     <EndpointDescription
       method={'GET'}
       endpoint={`${url}/user?skip={skip}&take={take}&count={count}`}
@@ -93,7 +92,7 @@ const Users = React.forwardRef(({
       quantityOfRecords={'-'}
       responseType={<CodeSpanDocs>Array&#60;User&#62; | &#123;rows: Array&#60;User&#62;, count: number&#125;</CodeSpanDocs>}
       codeLines={[
-        'fetch(\'https://data.mockerdistibutor.org/post?skip=3&take=2\')',
+        'fetch(\'https://data.mockerdistibutor.org/user?skip=3&take=2\')',
         '.then(response => response.json())',
         '.then(json => console.log(json))'
       ]}

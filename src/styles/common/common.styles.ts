@@ -42,6 +42,10 @@ export const Code = styled.div`
   display: flex;
   flex-direction: column;
 
+  text-overflow: ellipsis;
+  overflow: scroll;
+  white-space: nowrap;
+
   background: ${(props) => props.theme.colors.primary};
   
   &.secondary {
