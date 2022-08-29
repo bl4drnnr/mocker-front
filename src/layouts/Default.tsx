@@ -37,6 +37,7 @@ const Default = ({ children, header, footer }: DefaultLayoutProps): React.ReactE
             docs={header.docs}
             about={header.about}
             colorChangePx={header.colorChangePx}
+            defaultLanguage={header.defaultLanguage}
           />
           {children}
           <Footer

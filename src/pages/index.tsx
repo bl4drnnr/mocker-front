@@ -17,10 +17,11 @@ import {
 
 interface HomeProps {
   endpoints: Array<{ endpoint: string, count: number }>
+  locale: string
   url: string
 }
 
-const Home: NextPage<HomeProps> = ({ endpoints, url }) => {
+const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -38,7 +39,8 @@ const Home: NextPage<HomeProps> = ({ endpoints, url }) => {
     <Default
       header={{
         docs: t('components:header.docs'),
-        about: t('components:header.about')
+        about: t('components:header.about'),
+        defaultLanguage: locale
       }}
       footer={{
         docs: t('components:header.docs'),
@@ -114,6 +116,7 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
       endpoints,
+      locale,
       url
     }
   };

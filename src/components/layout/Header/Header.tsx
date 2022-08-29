@@ -6,10 +6,11 @@ import { useRecoilState } from 'recoil';
 
 import { HeaderProps } from '@components/layout/Header/Header.interface';
 import { Buttons, Container, HeaderLink, Logo } from '@components/layout/Header/Header.styles';
+import ChangeLanguage from '@components/UI/ChangeLanguage/ChangeLanguage';
 import ThemeToggler from '@components/UI/ThemeToggler/ThemeToggler';
 import { theme } from '@store/global/global.state';
 
-const Header = ({ docs, about, colorChangePx }: HeaderProps) => {
+const Header = ({ docs, about, colorChangePx, defaultLanguage }: HeaderProps) => {
   const [currentTheme, setCurrentTheme] = useRecoilState(theme);
   const [background, setBackground] = React.useState(false);
   const router = useRouter();
@@ -70,6 +71,7 @@ const Header = ({ docs, about, colorChangePx }: HeaderProps) => {
           theme={currentTheme}
           onClick={() => toggleTheme()}
         />
+        <ChangeLanguage defaultLanguage={defaultLanguage} />
       </Buttons>
     </Container>
   );

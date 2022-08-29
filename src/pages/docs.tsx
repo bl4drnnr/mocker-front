@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
@@ -14,10 +14,11 @@ import { Wrapper } from '@styles/pages/docs.styles';
 
 interface DocsProps {
   url: string
+  locale: string
   endpoints: Array<{ endpoint: string, count: number }>
 }
 
-const Docs = ({ url, endpoints }: DocsProps) => {
+const Docs: NextPage<DocsProps> = ({ url, endpoints, locale }) => {
   const { t } = useTranslation();
 
   const [sections, setSections] = React.useState([
@@ -62,6 +63,7 @@ const Docs = ({ url, endpoints }: DocsProps) => {
       header={{
         docs: t('components:header.docs'),
         about: t('components:header.about'),
+        defaultLanguage: locale,
         colorChangePx: 0
       }}
       footer={{
@@ -134,6 +136,7 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
       endpoints,
+      locale,
       url
     }
   };

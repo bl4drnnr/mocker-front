@@ -8,7 +8,11 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Default from '@layouts/Default';
 import { Container, Text, Wrapper, Link, Title } from '@styles/common/common.styles';
 
-const About: NextPage = () => {
+interface AboutProps {
+  locale: string
+}
+
+const About: NextPage<AboutProps> = ({ locale }) => {
   const { t } = useTranslation();
 
   const handleRedirect = (path: string) => {
@@ -19,7 +23,8 @@ const About: NextPage = () => {
     <Default
       header={{
         docs: t('components:header.docs'),
-        about: t('components:header.about')
+        about: t('components:header.about'),
+        defaultLanguage: locale
       }}
       footer={{
         docs: t('components:header.docs'),
@@ -62,6 +67,7 @@ export const getStaticProps: GetStaticProps = async ({
 }) => ({
   props: {
     ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
+    locale
   },
 });
 
