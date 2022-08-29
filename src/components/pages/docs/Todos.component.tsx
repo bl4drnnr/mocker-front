@@ -1,8 +1,8 @@
 import React from 'react';
 
+import EndpointDescription from '@components/pages/common/EndpointDescription.component';
 import JsonData from '@components/pages/common/JsonData.component';
 import { CodeSpanDocs, Text, Title } from '@styles/common/common.styles';
-import EndpointDescription from "@components/pages/common/EndpointDescription.component";
 
 interface TodoProps {
   todoRef: React.RefObject<HTMLParagraphElement>

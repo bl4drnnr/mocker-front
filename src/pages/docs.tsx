@@ -64,6 +64,11 @@ const Docs = ({ url, endpoints }: DocsProps) => {
         about: t('components:header.about'),
         colorChangePx: 0
       }}
+      footer={{
+        docs: t('components:header.docs'),
+        about: t('components:header.about'),
+        rights: t('common:right')
+      }}
     >
       <Sidebar
         sections={sections}
@@ -127,7 +132,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
+      ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
       endpoints,
       url
     }

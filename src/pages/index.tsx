@@ -40,6 +40,11 @@ const Home: NextPage<HomeProps> = ({ endpoints, url }) => {
         docs: t('components:header.docs'),
         about: t('components:header.about')
       }}
+      footer={{
+        docs: t('components:header.docs'),
+        about: t('components:header.about'),
+        rights: t('common:right')
+      }}
     >
       <WelcomeComponent
         title={t('pages:index.title')}

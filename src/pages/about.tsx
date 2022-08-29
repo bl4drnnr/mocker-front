@@ -21,6 +21,11 @@ const About: NextPage = () => {
         docs: t('components:header.docs'),
         about: t('components:header.about')
       }}
+      footer={{
+        docs: t('components:header.docs'),
+        about: t('components:header.about'),
+        rights: t('common:right')
+      }}
     >
       <Wrapper>
         <Container>
@@ -56,7 +61,7 @@ export const getStaticProps: GetStaticProps = async ({
  locale
 }) => ({
   props: {
-    ...(await serverSideTranslations(locale as string, ['pages', 'components'])),
+    ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
   },
 });
 

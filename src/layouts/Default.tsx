@@ -3,6 +3,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 import Footer from '@components/layout/Footer/Footer';
+import { FooterProps } from '@components/layout/Footer/Footer.interface';
 import Header from '@components/layout/Header/Header';
 import { HeaderProps } from '@components/layout/Header/Header.interface';
 import useDarkMode from '@hooks/useDarkMode.hook';
@@ -21,9 +22,10 @@ const Container = styled.div`
 interface DefaultLayoutProps {
   children: React.ReactElement | React.ReactElement[];
   header: HeaderProps;
+  footer: FooterProps
 }
 
-const Default = ({ children, header }: DefaultLayoutProps): React.ReactElement => {
+const Default = ({ children, header, footer }: DefaultLayoutProps): React.ReactElement => {
   const [theme] = useDarkMode();
 
   return (
@@ -37,7 +39,11 @@ const Default = ({ children, header }: DefaultLayoutProps): React.ReactElement =
             colorChangePx={header.colorChangePx}
           />
           {children}
-          <Footer />
+          <Footer
+            docs={footer.docs}
+            about={footer.about}
+            rights={footer.rights}
+          />
 
         </Container>
       </Wrapper>
