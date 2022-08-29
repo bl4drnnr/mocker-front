@@ -1,0 +1,60 @@
+{
+  "index": {
+    "title": "Dystrybutor JSON REST API danych",
+    "startButton": "Zacząć",
+    "intro": "darmowy dystrybutor JSON REST API danych do prototypowania i testowania interfejsów API z fałszywymi danymi.",
+    "linkTo": "Wszystkie zasoby są dostępne do wykorzystania w podanym adresie URL",
+    "endpointsDescription1": "Opis wszystkich zasobów, a także liczbę dostępnych rekordów dla każdego z nich zostaną opisane poniżej.",
+    "endpointsDescription2": "Więcej o każdym z zasobów i ich powiązaniach można przeczytać w",
+    "availableEndpoints": "Poniżej znajduje się tabela ilustrująca dostępne zasoby i liczbę rekordów dla każdego z nich.",
+    "relation": "Należy pamiętać, że zasoby są ze sobą powiązane tworząc zaimprowizowaną bazę danych z powiązanymi rekordami.",
+    "docs": "dokumentacji",
+    "quantity": "Liczba wpisów",
+    "introMenu": {
+      "intro": "Wstąpienie",
+      "availableEndpoints": "Dostępne zasoby",
+      "examples": "Przykłady"
+    },
+    "examplesText": "Oto kilka przykładów tego, jak możesz używać punktów końcowych we własnym interfejsie API i jakiej odpowiedzi możesz się spodziewać.",
+    "examples": {
+      "allRecords1": "Wszystkie wpisy dla jednego Zasobu są dostępne pod",
+      "allRecords2": "ścieżką.",
+      "specificRecord1": "Jeśli chcesz uzyskać tylko jeden konkretny rekord, po prostu podaj",
+      "specificRecord2": "rekordu dla zasobu.",
+      "pagination1": "Również paginacja o łącznej liczbie (",
+      "pagination2": "parametr - opcjonalnie) rekordy zasobów są dostępne z"
+    }
+  },
+  "about": {
+    "title": "O projekcie",
+    "contact": "Kontakt",
+    "description": "эjest to całkowicie darmowy projekt open source, który został stworzony jako projekt szkoleniowy do nauki 3 frameworków — React + Next.js i Nest.js, a także wszystkiego na temat wdrażania AWS.",
+    "more": "Więcej informacji na temat każdej części projektu - front-end i back-end - znajdziesz na moich stronach GitHub.",
+    "contactTitle": "W przypadku jakichkolwiek pytań dotyczących projektu(ów) (lub nawet jeśli chcesz porozmawiać) zawsze możesz mnie znaleźć tutaj - "
+  },
+  "docs": {
+    "introduction": {
+      "title": "jest całkowicie darmowym i otwartym dystrybutorem danych JSON dla interfejsu API REST, który umożliwia programistom bez zaplecza wypełnianie stron fałszywymi danymi.",
+      "description": "Masz do dyspozycji kilka punktów końcowych (zasobów), które są używane do pobierania danych zgodnie z poniższą dokumentacją. Zauważ, że punkty końcowe są połączone ze sobą jako zaimprowizowana baza danych SQL. Korzystając ze specjalnego zapytania, możesz użyć JOIN, aby uzyskać dane dotyczące 2 lub więcej zasobów. Więcej na ten temat zostanie pokazane poniżej, w sekcjach, w których ta funkcjonalność jest dostępna.",
+      "endpointDefault": "Domyślnie każdy zasób ma swoje domyślne trasy, które pozwalają na przykład uzyskać jeden post według identyfikatora lub wyświetlić je wszystkie (i policzyć).",
+      "docsReference": "Również dokumentacja Swagger jest dostępna pod",
+      "generics": "Wszystkie typy odpowiedzi zostaną napisane i opisane w TypeScript."
+    },
+    "users": {
+      "title": "prawdopodobnie najważniejszy punkt końcowy, który jest powiązany ze wszystkimi innymi zasobami — relacjami Post i Todo. Zasadniczo oznacza to, że każdy użytkownik ma co najmniej jeden rekord i jedno zadanie, dzięki czemu można łączyć i pobierać dane-rekordy lub zadania-odnoszące się tylko do jednego użytkownika.",
+      "description": "Poniżej zostaną wymienione wszystkie możliwe punkty końcowe, parametry zapytania, liczba rekordów, odpowiedzi i ich typy.",
+      "entity": "jako obiekt ma swoje wymagane i opcjonalne pola i masz możliwość manipulowania nim i pobierania pól, które chcesz pobrać za pomocą parametrów zapytania. A zanim zaczniemy, opiszmy istotę.",
+      "relations": "Jak opisano wcześniej, zasoby są ze sobą połączone, tworząc zaimprowizowaną bazę danych z relacjami. W tym przypadku wygląda to tak - każdy użytkownik ma co najmniej jedno zadanie i jeden rekord, to znaczy, mówiąc językiem bazy danych-tworzenie połączeń jeden do wielu. Więcej informacji na temat zasobów Post i Todo zostanie napisanych poniżej, a oto jak skontaktować się z użytkownikiem"
+    },
+    "posts": {
+      "title": "jest to zasób, który ma - mówiąc językiem bazy danych - relację jeden-do-wielu z jednostką użytkownika. Zasadniczo oznacza to, że jeden użytkownik może mieć wiele postów.",
+      "description": "Poniżej zostaną wymienione wszystkie możliwe punkty końcowe, parametry zapytania, liczba rekordów, odpowiedzi i ich typy.",
+      "entity": "podobnie jak encja Użytkownik ma wymagane i opcjonalne pola, do których można uzyskać dostęp za pomocą parametrów zapytania."
+    },
+    "todos": {
+      "title": "jest to ostatni zasób, który działa tak samo jak obiekt Post, co oznacza, że ma połączenie jeden-do-wielu z obiektem użytkownika, w którym jeden użytkownik może mieć wiele zadań.",
+      "description": "Poniżej zostaną wymienione wszystkie możliwe punkty końcowe, parametry zapytania, liczba rekordów, odpowiedzi i ich typy.",
+      "entity": "encja:"
+    }
+  }
+}
