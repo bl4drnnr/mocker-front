@@ -32,13 +32,13 @@ const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
     prefix: 'en'
   }]);
 
-  const changeLanguage = (language: string) => {
-    languages.forEach(lang => {
+  const changeLanguage = async (language: string) => {
+    for (const lang of languages) {
       if (lang.language === language) {
         setPickedLanguage(lang.flag);
-        router.push(lang.prefix);
+        await router.push(lang.prefix);
       }
-    });
+    }
   };
 
   React.useEffect(() => {
