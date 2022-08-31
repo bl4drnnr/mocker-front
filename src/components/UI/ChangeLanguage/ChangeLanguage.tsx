@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import {
@@ -14,7 +15,7 @@ interface ChangeLanguageProps {
 }
 
 const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
-  const router = useRouter();
+  const { asPath } = useRouter();
 
   const [showLanguages, setShowLanguages] = React.useState(false);
   const [pickedLanguage, setPickedLanguage] = React.useState('');
@@ -36,7 +37,7 @@ const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
     for (const lang of languages) {
       if (lang.language === language) {
         setPickedLanguage(lang.flag);
-        await router.push(lang.prefix);
+        setShowLanguages(false);
       }
     }
   };
@@ -67,10 +68,15 @@ const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
         {showLanguages ? (
           <LanguagesList>
             {languages.map(item => (
-              <LanguageItem
+              <Link
                 key={item.language}
-                onClick={() => changeLanguage(item.language)}
-              >{item.flag} {item.language}</LanguageItem>
+                href={asPath}
+                locale={item.prefix}
+              >
+                <LanguageItem>
+                  {item.flag} {item.language}
+                </LanguageItem>
+              </Link>
             ))}
           </LanguagesList>
         ):  null}

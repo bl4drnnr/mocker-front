@@ -18,7 +18,7 @@ export const LanguagesList = styled.div`
   left: -100px;
   position: absolute;
   
-  background: ${(props) => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.secondary};
   border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 8px;
 `;
