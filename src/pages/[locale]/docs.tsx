@@ -11,6 +11,7 @@ import Todos from '@components/pages/docs/Todos.component';
 import Users from '@components/pages/docs/Users.component';
 import Default from '@layouts/Default';
 import { Wrapper } from '@styles/pages/docs.styles';
+import { getStaticPaths } from 'src/lib/getStatic';
 
 interface DocsProps {
   url: string
@@ -116,9 +117,8 @@ const Docs: NextPage<DocsProps> = ({ url, endpoints, locale }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({
- locale
-}) => {
+const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context?.params?.locale;
   const isProd = process.env.NODE_ENV === 'production';
   const url = isProd ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL;
 
@@ -141,5 +141,7 @@ export const getStaticProps: GetStaticProps = async ({
     }
   };
 };
+
+export { getStaticPaths, getStaticProps };
 
 export default Docs;

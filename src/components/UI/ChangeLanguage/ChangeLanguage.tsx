@@ -33,15 +33,6 @@ const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
     prefix: 'en'
   }]);
 
-  const changeLanguage = async (language: string) => {
-    for (const lang of languages) {
-      if (lang.language === language) {
-        setPickedLanguage(lang.flag);
-        setShowLanguages(false);
-      }
-    }
-  };
-
   React.useEffect(() => {
     switch (defaultLanguage) {
       case 'en':

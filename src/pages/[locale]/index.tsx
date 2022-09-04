@@ -14,6 +14,7 @@ import {
   ContentWrapper,
   ContentContainer,
 } from '@styles/pages/index.styles';
+import { getStaticPaths } from 'src/lib/getStatic';
 
 interface HomeProps {
   endpoints: Array<{ endpoint: string, count: number }>
@@ -96,9 +97,8 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({
- locale
-}) => {
+const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context?.params?.locale;
   const isProd = process.env.NODE_ENV === 'production';
   const url = isProd ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL;
 
@@ -121,5 +121,7 @@ export const getStaticProps: GetStaticProps = async ({
     }
   };
 };
+
+export { getStaticPaths, getStaticProps };
 
 export default Home;

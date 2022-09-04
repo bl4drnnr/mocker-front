@@ -7,6 +7,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Default from '@layouts/Default';
 import { Container, Text, Wrapper, Link, Title } from '@styles/common/common.styles';
+import { getStaticPaths } from 'src/lib/getStatic';
 
 interface AboutProps {
   locale: string
@@ -62,13 +63,17 @@ const About: NextPage<AboutProps> = ({ locale }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({
- locale
-}) => ({
-  props: {
+const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context?.params?.locale;
+
+  return {
+    props: {
     ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
-    locale
-  },
-});
+      locale
+    }
+  };
+};
+
+export { getStaticPaths, getStaticProps };
 
 export default About;

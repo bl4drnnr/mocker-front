@@ -28,7 +28,7 @@
   "about": {
     "title": "O projekcie",
     "contact": "Kontakt",
-    "description": "эjest to całkowicie darmowy projekt open source, który został stworzony jako projekt szkoleniowy do nauki 3 frameworków — React + Next.js i Nest.js, a także wszystkiego na temat wdrażania AWS.",
+    "description": "jest to całkowicie darmowy projekt open source, który został stworzony jako projekt szkoleniowy do nauki 3 frameworków — React + Next.js i Nest.js, a także wszystkiego na temat wdrażania AWS.",
     "more": "Więcej informacji na temat każdej części projektu - front-end i back-end - znajdziesz na moich stronach GitHub.",
     "contactTitle": "W przypadku jakichkolwiek pytań dotyczących projektu(ów) (lub nawet jeśli chcesz porozmawiać) zawsze możesz mnie znaleźć tutaj - "
   },
