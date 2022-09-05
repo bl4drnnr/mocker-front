@@ -64,14 +64,12 @@ const ChangeLanguage = ({ defaultLanguage, path }: ChangeLanguageProps) => {
         {showLanguages ? (
           <LanguagesList>
             {languages.map(item => (
-              <div
+              <LanguageItem
                 key={item.language}
                 onClick={() => handleRedirect(item.prefix)}
               >
-                <LanguageItem>
-                  {item.flag} {item.language}
-                </LanguageItem>
-              </div>
+                {item.flag} {item.language}
+              </LanguageItem>
             ))}
           </LanguagesList>
         ):  null}
