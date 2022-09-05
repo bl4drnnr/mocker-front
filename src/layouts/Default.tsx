@@ -44,6 +44,7 @@ const Default = ({ children, header, footer }: DefaultLayoutProps): React.ReactE
             docs={footer.docs}
             about={footer.about}
             rights={footer.rights}
+            defaultLanguage={footer.defaultLanguage}
           />
 
         </Container>

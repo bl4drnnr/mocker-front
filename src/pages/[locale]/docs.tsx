@@ -69,7 +69,8 @@ const Docs: NextPage<DocsProps> = ({ url, endpoints, locale }) => {
       footer={{
         docs: t('components:header.docs'),
         about: t('components:header.about'),
-        rights: t('common:right')
+        rights: t('common:right'),
+        defaultLanguage: locale
       }}
     >
       <Sidebar

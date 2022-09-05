@@ -28,7 +28,7 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleRouteChange = async (path: string) => {
-    await router.push(path);
+    await router.push(`/${locale}${path}`);
   };
 
   const fetchData = async (path: string) => {
@@ -45,7 +45,8 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
       footer={{
         docs: t('components:header.docs'),
         about: t('components:header.about'),
-        rights: t('common:right')
+        rights: t('common:right'),
+        defaultLanguage: locale
       }}
     >
       <WelcomeComponent

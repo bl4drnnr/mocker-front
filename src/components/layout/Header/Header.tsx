@@ -16,7 +16,7 @@ const Header = ({ docs, about, colorChangePx, defaultLanguage }: HeaderProps) =>
   const router = useRouter();
 
   const handleRouteChange = async (path: string) => {
-    await router.push(path);
+    await router.push(`/${defaultLanguage}${path}`);
   };
 
   const setTheme = (theme: 'dark' | 'light') => {
@@ -45,7 +45,7 @@ const Header = ({ docs, about, colorChangePx, defaultLanguage }: HeaderProps) =>
       className={classNames({ background })}
     >
       <Logo
-        onClick={() => handleRouteChange('/')}
+        onClick={() => handleRouteChange('')}
       >MOCKER
       </Logo>
 

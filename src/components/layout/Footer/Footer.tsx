@@ -6,11 +6,11 @@ import { FooterProps } from '@components/layout/Footer/Footer.interface';
 import { Container, FooterLinks, InnerContainer, FooterLink } from '@components/layout/Footer/Footer.styles';
 
 
-const Footer = ({ rights, docs, about }: FooterProps) => {
+const Footer = ({ rights, docs, about, defaultLanguage }: FooterProps) => {
   const router = useRouter();
 
   const handlerRedirect = async (path: string) => {
-    await router.push(path);
+    await router.push(`/${defaultLanguage}${path}`);
   };
 
   return (
