@@ -71,7 +71,10 @@ const Header = ({ docs, about, colorChangePx, defaultLanguage }: HeaderProps) =>
           theme={currentTheme}
           onClick={() => toggleTheme()}
         />
-        <ChangeLanguage defaultLanguage={defaultLanguage} />
+        <ChangeLanguage
+          path={router.asPath}
+          defaultLanguage={defaultLanguage}
+        />
       </Buttons>
     </Container>
   );

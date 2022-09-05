@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 import {
@@ -11,11 +10,12 @@ import {
 } from '@components/UI/ChangeLanguage/ChangeLanguage.styles';
 
 interface ChangeLanguageProps {
-  defaultLanguage: string
+  defaultLanguage: string;
+  path: string;
 }
 
-const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
-  const { asPath } = useRouter();
+const ChangeLanguage = ({ defaultLanguage, path }: ChangeLanguageProps) => {
+  const router = useRouter();
 
   const [showLanguages, setShowLanguages] = React.useState(false);
   const [pickedLanguage, setPickedLanguage] = React.useState('');
@@ -50,6 +50,11 @@ const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
     }
   }, []);
 
+  const handleRedirect = async (prefix: string) => {
+    if (path.split('/').length === 2) await router.push(`/${prefix}`);
+    else await router.push(`/${prefix}/${path.split('/').slice(-1)}`);
+  };
+
   return (
     <>
       <PickedLanguage
@@ -59,15 +64,14 @@ const ChangeLanguage = ({ defaultLanguage }: ChangeLanguageProps) => {
         {showLanguages ? (
           <LanguagesList>
             {languages.map(item => (
-              <Link
+              <div
                 key={item.language}
-                href={asPath}
-                locale={item.prefix}
+                onClick={() => handleRedirect(item.prefix)}
               >
                 <LanguageItem>
                   {item.flag} {item.language}
                 </LanguageItem>
-              </Link>
+              </div>
             ))}
           </LanguagesList>
         ):  null}
