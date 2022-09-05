@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 
 import AvailableEndpoints from '@components/pages/index/AvailableEndpoints.component';
@@ -14,7 +13,7 @@ import {
   ContentWrapper,
   ContentContainer,
 } from '@styles/pages/index.styles';
-import { getStaticPaths } from 'src/lib/getStatic';
+import { getStaticPaths, makeStaticProps } from 'src/lib/getStatic';
 
 interface HomeProps {
   endpoints: Array<{ endpoint: string, count: number }>
@@ -97,31 +96,7 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
   );
 };
 
-const getStaticProps: GetStaticProps = async (context) => {
-  const locale = context?.params?.locale;
-  const isProd = process.env.NODE_ENV === 'production';
-  const url = isProd ? process.env.PRODUCTION_DATA_API_URL : process.env.LOCAL_DATA_API_URL;
-
-  const availableEndpoints = ['post', 'user', 'todo'];
-
-  const endpoints = await Promise.all(
-    availableEndpoints.map(async (item) => {
-      const res = await fetch(`${url}/${item}?count=true`);
-      const data = await res.json();
-      return { count: data.count, endpoint: item };
-    })
-  );
-
-  return {
-    props: {
-      ...(await serverSideTranslations(locale as string, ['pages', 'components', 'common'])),
-      endpoints,
-      locale,
-      url
-    }
-  };
-};
-
+const getStaticProps = makeStaticProps(['pages', 'common', 'components']);
 export { getStaticPaths, getStaticProps };
 
 export default Home;
