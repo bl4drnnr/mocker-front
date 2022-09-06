@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import CodeBlock from '@components/pages/common/CodeBlock.component';
 import JsonBlock from '@components/pages/common/JsonData.component';
 import Button from '@components/UI/Button/Button';
-import FetchService from '@services/fetch';
+import FetchService from '@services/fetchService/fetch.service';
 
 interface TryItProps {
   codeLines: string[]

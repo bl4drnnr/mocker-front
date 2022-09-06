@@ -8,6 +8,7 @@ import AvailableEndpoints from '@components/pages/index/AvailableEndpoints.compo
 import Examples from '@components/pages/index/Examples.component';
 import Intro from '@components/pages/index/Intro.component';
 import WelcomeComponent from '@components/pages/index/Welcome.component';
+import Modal from '@components/UI/Modal/Modal';
 import Default from '@layouts/Default';
 import {
   ContentWrapper,
@@ -93,6 +94,12 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
 
         </ContentContainer>
       </ContentWrapper>
+
+      <>
+        {showModal ? (
+          <Modal onClose={() => setShowModal(false)}/>
+        ) : null}
+      </>
     </Default>
   );
 };

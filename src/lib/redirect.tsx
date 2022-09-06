@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React from 'react';
 
 import { useRouter } from 'next/router';
 
@@ -8,7 +8,7 @@ export const useRedirect = (to: any) => {
   const router = useRouter();
   to = to || router.asPath;
 
-  useEffect(() => {
+  React.useEffect(() => {
     const detectedLng = languageDetector.detect();
     if (to.startsWith('/' + detectedLng) && router.route === '/404') {
       router.replace('/' + detectedLng + router.route);

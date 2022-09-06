@@ -6,12 +6,17 @@ import { ModalContainer, ModalWrapper } from '@components/UI/Modal/Modal.styles'
 
 const Modal = ({ onClose }: ModalProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+
+  React.useEffect(() => {
+    //
+  }, [searchQuery])
+
   return (
     <ModalWrapper onClick={onClose}>
       <ModalContainer onClick={(e) => e.stopPropagation()}>
         <Input
           value={searchQuery}
-          placeholder={'Search...'}
+          placeholder={'/post/list'}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </ModalContainer>
