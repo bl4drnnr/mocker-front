@@ -15,7 +15,6 @@ export const useSearchService = () => {
 
       return data;
     } catch (error) {
-      console.log('errroerrroerrroerrroerrroerrroerrro', error);
       throw error;
     } finally {
       setLoading(false);

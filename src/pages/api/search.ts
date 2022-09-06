@@ -11,7 +11,6 @@ export default async (
 
     return res.json(data);
   } catch (e) {
-    console.log('eeeeeeeeeeeeeeeeeeee',e);
     console.log(e);
   }
 };
