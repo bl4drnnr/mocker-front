@@ -1,8 +1,8 @@
 import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import '../styles/globals.css';
+import Head from 'next/head';
 import { RecoilRoot } from 'recoil';
-import Head from "next/head";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
