@@ -11,6 +11,6 @@ export const BasicInput = styled.input`
   border-radius: 8px;
   
   ::placeholder {
-    color: rgba(238, 238, 238, .85);
+    color: rgba(238, 238, 238, .25);
   }
 `;

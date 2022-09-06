@@ -1,21 +1,40 @@
 import React, { useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 import Input from '@components/UI/Input/Input';
 import { ModalProps } from '@components/UI/Modal/Modal.interface';
-import { ModalContainer, ModalWrapper } from '@components/UI/Modal/Modal.styles';
+import {
+  ModalContainer,
+  ModalWrapper, 
+  SearchContainer,
+  SearchItem
+} from '@components/UI/Modal/Modal.styles';
 import { useSearchService } from '@services/searchService/search.service';
+import { Text } from '@styles/common/common.styles';
 
-const Modal = ({ onClose }: ModalProps) => {
+const Modal = ({ onClose, locale }: ModalProps) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchResult, setSearchResult] = useState<any>([]);
   const { search } = useSearchService();
+
+  const router = useRouter();
+
+  const handleRedirect = async () => {
+    await router.push(`/${locale}/docs`);
+  };
 
   const fetchSearch = async () => {
     const data = await search({ searchQuery });
-    console.log('data', data);
+    setSearchResult(data);
   };
 
   React.useEffect(() => {
-    fetchSearch().then();
+    if (searchQuery.length) {
+      fetchSearch().then();
+    } else {
+      setSearchResult([]);
+    }
   }, [searchQuery]);
 
   return (
@@ -26,6 +45,19 @@ const Modal = ({ onClose }: ModalProps) => {
           placeholder={'/post/list'}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+        {searchResult?.length ? (
+          <SearchContainer>
+            <Text>Found endpoints:</Text>
+            {searchResult.map((item: any) => (
+              <SearchItem
+                key={item.name}
+                onClick={() => handleRedirect()}
+              >
+                {item.name}
+              </SearchItem>
+            ))}
+          </SearchContainer>
+        ): null}
       </ModalContainer>
     </ModalWrapper>
   );

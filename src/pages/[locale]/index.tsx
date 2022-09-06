@@ -97,7 +97,10 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
 
       <>
         {showModal ? (
-          <Modal onClose={() => setShowModal(false)}/>
+          <Modal
+            onClose={() => setShowModal(false)}
+            locale={locale}
+          />
         ) : null}
       </>
     </Default>
