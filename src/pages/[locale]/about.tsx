@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { GetStaticProps, NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
 import Default from '@layouts/Default';
 import { Container, Text, Wrapper, Link, Title } from '@styles/common/common.styles';
@@ -34,6 +35,10 @@ const About: NextPage<AboutProps> = ({ locale }) => {
         defaultLanguage: locale
       }}
     >
+      <Head>
+        <title>MOCKER | {t('pages:about.title')}</title>
+      </Head>
+
       <Wrapper>
         <Container>
           <Title>{t('pages:about.title')}</Title>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
 
 import Introduction from '@components/pages/docs/Introduction.component';
 import Posts from '@components/pages/docs/Posts.component';
@@ -73,6 +74,10 @@ const Docs: NextPage<DocsProps> = ({ url, endpoints, locale }) => {
         defaultLanguage: locale
       }}
     >
+      <Head>
+        <title>MOCKER | {t('components:header.docs')}</title>
+      </Head>
+
       <Sidebar
         sections={sections}
         executeScroll={executeScroll}

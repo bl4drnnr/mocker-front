@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import type { NextPage } from 'next';
 import { useTranslation } from 'next-i18next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import AvailableEndpoints from '@components/pages/index/AvailableEndpoints.component';
@@ -50,6 +51,10 @@ const Home: NextPage<HomeProps> = ({ endpoints, url, locale }) => {
         defaultLanguage: locale
       }}
     >
+      <Head>
+        <title>MOCKER | JSON data distributor</title>
+      </Head>
+
       <WelcomeComponent
         title={t('pages:index.title')}
         startButton={t('pages:index.startButton')}
