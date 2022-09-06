@@ -7,7 +7,12 @@ export default async (
   res: NextApiResponse
 ): Promise<void> => {
   try {
-    const { data } = await Api.get(`/search?query=${req.query.query}`);
+    const { data } = await Api.get(`/search?query=${req.query.query}`, {
+      auth: {
+        username: String(process.env.DATA_API_USERNAME),
+        password: String(process.env.DATA_API_PASSWORD)
+      }
+    });
 
     return res.json(data);
   } catch (e) {
